@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">VeterinaryApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_hint_txt">email</string>
+    <string name="pass_hint_txt">Contrasenya</string>
+    <string name="button_login">Iniciar Sessió</string>
+    <string name="button_createAcc">Crear Compte</string>
 </resources>
