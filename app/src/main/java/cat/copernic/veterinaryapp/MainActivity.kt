@@ -11,4 +11,8 @@ class MainActivity : AppCompatActivity() {
 
             R.layout.activity_main)
     }
+    //Comrpueba que los datos del correo y contraseña no estan vacíos
+    fun analizarDatosUsuario(){
+
+    }
 }
