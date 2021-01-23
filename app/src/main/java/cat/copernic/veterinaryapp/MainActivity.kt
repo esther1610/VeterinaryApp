@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthMultiFactorException
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val email = binding.txtEmail.text.toString()
         if (TextUtils.isEmpty(email)) {
             //mensaje email vacio, cambiar tost por alertDialog
-            Toast.makeText(this, "email no valido", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "email no valido", Toast.LENGTH_LONG).show()
+            mensajeEmergente("Atenció", "Omple el camp de email.")
             valid = false
         } else {
             binding.txtEmail.error = null
@@ -52,7 +54,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val password = binding.txtPass.text.toString()
         if (TextUtils.isEmpty(password)) {
             //mensaje pass vacio. cambiar toast por alertDialog
-            Toast.makeText(this, "Password no valido", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Password no valido", Toast.LENGTH_LONG).show()
+            mensajeEmergente("Atenció", "Omple el camp de contrasenya.")
             valid = false
         } else {
             binding.txtPass.error = null
@@ -65,10 +68,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //Si se ha logueado cargar la siguiente pagina, user contiene el usuario FirebaseUser
         if (user != null) {
             //Pasar a la siguiente activity.
-            Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
+            mensajeEmergente("Missatge", "Login correcte.")
         } else {
             //El usuario esta vació, mensaje
-            Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -89,8 +93,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(baseContext, "Authentication failed.",
+                        //Toast.LENGTH_SHORT).show()
+                        mensajeEmergente("Error", "Error en l'autentificació")
                         seHaLogueado(null)
                         // [START_EXCLUDE]
                         checkForMultiFactorFailure(task.exception!!)
@@ -100,7 +105,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     // [START_EXCLUDE]
                     if (!task.isSuccessful) {
                         //binding.status.setText(R.string.auth_failed)
-                        Toast.makeText(this, "Autentificación ha fallado", Toast.LENGTH_LONG).show()
+                        //BToast.makeText(this, "Autentificación ha fallado", Toast.LENGTH_LONG).show()
                     }
                     // [END_EXCLUDE]
                 }
@@ -121,6 +126,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             setResult(42, intent)
             finish()
         }
+    }
+
+    /**
+     * Muestra un alert dialog con el titulo y el mensaje
+     *
+     * @titulo El titutolo del dialog
+     * @mensaje El mensaje del dialogo
+     */
+    private fun mensajeEmergente(titulo: String, mensaje: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(titulo)
+        builder.setMessage(mensaje)
+        builder.setPositiveButton("Aceptar") { dialog, which -> //De momento nada que hacer
+        }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     override fun onClick(v: View) {
