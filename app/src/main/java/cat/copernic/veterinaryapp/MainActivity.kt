@@ -1,14 +1,22 @@
 package cat.copernic.veterinaryapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthMultiFactorException
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,21 +25,113 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         //Botones
         binding.btnLogIn.setOnClickListener(this)
+        auth = Firebase.auth
     }
-    //Comprueba que los datos del correo y contraseña no estan vacíos
-    private fun analizarDatosUsuario(){
-        //TODO
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
     }
-     private fun login(email: String, password: String){
-         //TODO
-         //Tost temporal pra probar
-         Toast.makeText(this,"Pulasado LogIn", Toast.LENGTH_LONG).show()
-     }
+
+    /**
+     * Comprueba que el usuario no ha dejado los campos en blanco
+     * @return boleano si es correcto o no
+     */
+    private fun analizarDatosUsuario(): Boolean {
+        var valid = true
+
+        val email = binding.txtEmail.text.toString()
+        if (TextUtils.isEmpty(email)) {
+            //mensaje email vacio, cambiar tost por alertDialog
+            Toast.makeText(this, "email no valido", Toast.LENGTH_LONG).show()
+            valid = false
+        } else {
+            binding.txtEmail.error = null
+        }
+
+        val password = binding.txtPass.text.toString()
+        if (TextUtils.isEmpty(password)) {
+            //mensaje pass vacio. cambiar toast por alertDialog
+            Toast.makeText(this, "Password no valido", Toast.LENGTH_LONG).show()
+            valid = false
+        } else {
+            binding.txtPass.error = null
+        }
+
+        return valid
+    }
+
+    private fun seHaLogueado(user: FirebaseUser?) {
+        //Si se ha logueado cargar la siguiente pagina, user contiene el usuario FirebaseUser
+        if (user != null) {
+            //Pasar a la siguiente activity.
+            Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
+        } else {
+            //El usuario esta vació, mensaje
+            Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun login(email: String, password: String) {
+        Log.d("TAG", "signIn:$email")
+        if (!analizarDatosUsuario()) {
+            return
+        }
+
+        // [START sign_in_with_email]
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success")
+                        val user = auth.currentUser
+                        seHaLogueado(user)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        seHaLogueado(null)
+                        // [START_EXCLUDE]
+                        checkForMultiFactorFailure(task.exception!!)
+                        // [END_EXCLUDE]
+                    }
+
+                    // [START_EXCLUDE]
+                    if (!task.isSuccessful) {
+                        //binding.status.setText(R.string.auth_failed)
+                        Toast.makeText(this, "Autentificación ha fallado", Toast.LENGTH_LONG).show()
+                    }
+                    // [END_EXCLUDE]
+                }
+    }
+
+    /**
+     * Trozo de codigo del ejemplo que creo necesario
+     */
+    private fun checkForMultiFactorFailure(e: Exception) {
+        // Multi-factor authentication with SMS is currently only available for
+        // Google Cloud Identity Platform projects. For more information:
+        // https://cloud.google.com/identity-platform/docs/android/mfa
+        if (e is FirebaseAuthMultiFactorException) {
+            Log.w(TAG, "multiFactorFailure", e)
+            val intent = Intent()
+            val resolver = e.resolver
+            intent.putExtra("EXTRA_MFA_RESOLVER", resolver)
+            setResult(42, intent)
+            finish()
+        }
+    }
+
     override fun onClick(v: View) {
-        when(v.id) {
+        when (v.id) {
             //Llamada a metodos de los botones
-            R.id.btnLogIn -> login("tmp user","tmp pass")
+            R.id.btnLogIn -> login(binding.txtEmail.text.toString(), binding.txtPass.text.toString())
 
         }
+    }
+
+    companion object {
+        private const val TAG = "EmailPassword"
     }
 }
