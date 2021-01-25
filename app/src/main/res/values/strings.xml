@@ -6,4 +6,8 @@
     <string name="pass_hint_txt">Contrasenya</string>
     <string name="button_login">Iniciar Sessió</string>
     <string name="button_createAcc">Crear Compte</string>
+    <string name="email">Email</string>
+    <string name="contrasenya">Contrasenya</string>
+    <string name="contraConfirm">Confirmació contrasenya</string>
+    <string name="botoRegistre">Registrar-se</string>
 </resources>

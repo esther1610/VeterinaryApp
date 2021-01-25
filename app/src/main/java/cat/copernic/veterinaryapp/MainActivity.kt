@@ -27,6 +27,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //Botones
         binding.btnLogIn.setOnClickListener(this)
         auth = Firebase.auth
+
+        binding.btnRegistro.setOnClickListener(){
+            val intent = Intent(this, RegistreActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     override fun onStart() {
