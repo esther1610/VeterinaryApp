@@ -76,7 +76,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (user != null) {
             //Pasar a la siguiente activity.
             //Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
-            mensajeEmergente("Missatge", "Login correcte.")
+            //mensajeEmergente("Missatge", "Login correcte.")
+
+            val toHome = Intent(this, Admin::class.java)
+            startActivity(toHome)
         } else {
             //El usuario esta vació, mensaje
             //Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()
