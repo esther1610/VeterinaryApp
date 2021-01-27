@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import cat.copernic.veterinaryapp.databinding.ActivityAdminBinding
 
 class Admin : AppCompatActivity() {
@@ -17,18 +14,11 @@ class Admin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setupActionBarWithNavController(findNavController(R.id.navega_admin_host))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_gen, menu)
         return true
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return Navigation.findNavController(this, R.id.navega_admin_host)
-            .navigateUp() || super.onSupportNavigateUp()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
