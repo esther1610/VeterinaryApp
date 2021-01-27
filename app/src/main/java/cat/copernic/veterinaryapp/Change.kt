@@ -20,6 +20,7 @@ class Change : Fragment() {
 
     var user = Firebase.auth.currentUser
 
+
     val profileUpdates = userProfileChangeRequest {
         displayName = ""
 
@@ -37,14 +38,25 @@ class Change : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener{
-            user!!.updateEmail("user@example.com")
+            user!!.updateEmail(binding.editTextTextEmailAddress.text.toString())
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d(TAG, "User email address updated.")
                         print("User email address updated.")
                     }
                 }
+            var newPassword = binding.editTextTextPassword.text.toString()
+            var confirmPassword = binding.editTextTextPassword2.text.toString()
+
+            if(newPassword.equals(confirmPassword)) {
+                print("holas")
+                user!!.updatePassword(newPassword)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d(TAG, "User password updated.")
+                        }
+                    }
+            }
         }
     }
-
 }
