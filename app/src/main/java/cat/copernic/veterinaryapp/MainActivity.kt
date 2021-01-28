@@ -35,10 +35,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     }
-
+/* ja hem inicialitzat el layout però no és visible */
     override fun onStart() {
         super.onStart()
+        // la variable currentUser tindrà l'usuari actual si està loginat, sinò serà null.
         val currentUser = auth.currentUser
+        if (currentUser!=null){
+            // obrim l'activity admin
+            mensajeEmergente("prova", "ja estic loginat")
+        }
     }
 
     /**
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (TextUtils.isEmpty(email)) {
             //mensaje email vacio, cambiar tost por alertDialog
             //Toast.makeText(this, "email no valido", Toast.LENGTH_LONG).show()
-            mensajeEmergente("Atenció", "Omple el camp de email.")
+            mensajeEmergente("Atenció", getString(R.string.msgBuit))
             valid = false
         } else {
             binding.txtEmail.error = null
@@ -102,7 +107,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         seHaLogueado(user)
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Log.w(TAG, task.exception.toString(), task.exception)
                         //Toast.makeText(baseContext, "Authentication failed.",
                         //Toast.LENGTH_SHORT).show()
                         mensajeEmergente("Error", "Error en l'autentificació")

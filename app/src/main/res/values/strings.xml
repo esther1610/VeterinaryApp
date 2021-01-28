@@ -11,6 +11,9 @@
     <string name="contraConfirm">Confirmació contrasenya</string>
     <string name="botoRegistre">Registrar-se</string>
 
+    <!--Main -->
+    <string name="msgBuit">"Omple el camp de email."</string>
+
     <!-- Menu General -->
     <string name="cerrar">Cerrar sesión</string>
 
