@@ -10,4 +10,14 @@
     <string name="contrasenya">Contrasenya</string>
     <string name="contraConfirm">Confirmació contrasenya</string>
     <string name="botoRegistre">Registrar-se</string>
+
+    <!--Main -->
+    <string name="msgBuit">"Omple el camp de email."</string>
+
+    <!-- Menu General -->
+    <string name="cerrar">Cerrar sesión</string>
+
+    <!-- Navegacion del administrador -->
+    <string name="nombre_home_admin">Usuarios</string>
+
 </resources>
