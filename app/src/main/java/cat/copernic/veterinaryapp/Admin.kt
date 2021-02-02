@@ -18,17 +18,19 @@ class Admin : AppCompatActivity() {
         binding = ActivityAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         setupActionBarWithNavController(findNavController(R.id.nav_host_admin))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_gen, menu)
         return true
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return Navigation.findNavController(this,
-            R.id.nav_host_admin)
+            R.id.nav_host_admin
+        )
             .navigateUp() || super.onSupportNavigateUp()
     }
 
@@ -41,5 +43,5 @@ class Admin : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }

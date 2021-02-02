@@ -7,20 +7,41 @@
 
     <fragment
         android:id="@+id/home_f"
-        android:name="cat.copernic.veterinaryapp.home"
+        android:name="cat.copernic.veterinaryapp.administrador.home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_home_f_to_change"
-            app:destination="@id/change" />
+            android:id="@+id/action_home_f_to_edit_perfil"
+            app:destination="@id/edit_perfil" />
     </fragment>
     <fragment
         android:id="@+id/change"
         android:name="cat.copernic.veterinaryapp.Change"
         android:label="fragment_change"
-        tools:layout="@layout/fragment_change" >
-        <action
-            android:id="@+id/action_change_to_home_f"
-            app:destination="@id/home_f" />
-    </fragment>
+        tools:layout="@layout/fragment_change" />
+    <fragment
+        android:id="@+id/crea_pregunta"
+        android:name="cat.copernic.veterinaryapp.administrador.crea_pregunta"
+        android:label="@string/button_createAcc"
+        tools:layout="@layout/fragment_crea_pregunta" />
+    <activity
+        android:id="@+id/registreActivity"
+        android:name="cat.copernic.veterinaryapp.RegistreActivity"
+        android:label="activity_registre"
+        tools:layout="@layout/activity_registre" />
+    <fragment
+        android:id="@+id/edit_perfil"
+        android:name="cat.copernic.veterinaryapp.edit_perfil"
+        android:label="fragment_edit_perfil"
+        tools:layout="@layout/fragment_edit_perfil" />
+    <activity
+        android:id="@+id/cierreSesion"
+        android:name="cat.copernic.veterinaryapp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/viewUser"
+        android:name="cat.copernic.veterinaryapp.ViewUser"
+        android:label="fragment_view_user"
+        tools:layout="@layout/fragment_view_user" />
 </navigation>
