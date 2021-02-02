@@ -44,4 +44,24 @@
         android:name="cat.copernic.veterinaryapp.ViewUser"
         android:label="fragment_view_user"
         tools:layout="@layout/fragment_view_user" />
+    <fragment
+        android:id="@+id/vet_generardiagnosticos"
+        android:name="cat.copernic.veterinaryapp.vet_generardiagnosticos"
+        android:label="fragment_vet_generardiagnosticos"
+        tools:layout="@layout/fragment_vet_generarcita" />
+    <fragment
+        android:id="@+id/vet_vercitas"
+        android:name="cat.copernic.veterinaryapp.vet_vercitas"
+        android:label="fragment_vet_vercitas"
+        tools:layout="@layout/fragment_vet_vercitas" />
+    <fragment
+        android:id="@+id/vet_modificarcita"
+        android:name="cat.copernic.veterinaryapp.vet_modificarcita"
+        android:label="fragment_vet_modificarcita"
+        tools:layout="@layout/fragment_vet_modificarcita" />
+    <fragment
+        android:id="@+id/vet_generardiag"
+        android:name="cat.copernic.veterinaryapp.vet_generardiag"
+        android:label="fragment_vet_generardiag"
+        tools:layout="@layout/fragment_vet_generardiag" />
 </navigation>
