@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth

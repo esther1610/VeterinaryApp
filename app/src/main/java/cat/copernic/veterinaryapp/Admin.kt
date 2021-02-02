@@ -18,6 +18,7 @@ class Admin : AppCompatActivity() {
         binding = ActivityAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         setupActionBarWithNavController(findNavController(R.id.nav_host_admin))
     }
 
@@ -28,7 +29,8 @@ class Admin : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return Navigation.findNavController(this,
-            R.id.nav_host_admin)
+            R.id.nav_host_admin
+        )
             .navigateUp() || super.onSupportNavigateUp()
     }
 
