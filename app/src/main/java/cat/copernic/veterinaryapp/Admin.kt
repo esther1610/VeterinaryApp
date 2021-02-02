@@ -22,7 +22,7 @@ class Admin : AppCompatActivity() {
         setupActionBarWithNavController(findNavController(R.id.nav_host_admin))
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+   /* override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_gen, menu)
         return true
     }
@@ -43,5 +43,5 @@ class Admin : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }

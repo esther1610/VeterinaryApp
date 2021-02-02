@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import cat.copernic.veterinaryapp.administrador.Administrador
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthMultiFactorException
@@ -41,7 +42,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val currentUser = auth.currentUser
         if (currentUser!=null){
             // obrim l'activity admin
-            mensajeEmergente("prova", "ja estic loginat")
+            val toHome = Intent(this, Administrador::class.java)
+            startActivity(toHome)
         }
     }
 
@@ -82,7 +84,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
             //mensajeEmergente("Missatge", "Login correcte.")
 
-            val toHome = Intent(this, Admin::class.java)
+            val toHome = Intent(this, Administrador::class.java)
             startActivity(toHome)
         } else {
             //El usuario esta vació, mensaje
