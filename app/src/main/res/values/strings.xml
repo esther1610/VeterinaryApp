@@ -11,13 +11,13 @@
     <string name="botoRegistre">Registrar-se</string>
 
     <!--Main -->
-    <string name="msgBuit">"Omple el camp de email."</string>
+    <string name="msgBuit">"Omple el camp d'email."</string>
 
     <!-- Menu General -->
-    <string name="cerrar">Cerrar sesión</string>
+    <string name="cerrar">Tancar sesió</string>
 
     <!-- Navegacion del administrador -->
-    <string name="nombre_home_admin">Usuarios</string>
+    <string name="nombre_home_admin">Usuaris</string>
     <string name="title_activity_administrador">Administrador</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,5 +29,16 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="btnPedirCita">Demanar cita</string>
+    <string name="veureCites">Veure Cites</string>
+    <string name="veureUsuari">Veure Usuari</string>
+    <string name="fqs">FQAS</string>
+    <string name="crearCita">Crear cita</string>
+    <string name="veureCita">Veure cita</string>
+    <string name="modCita">Modificar Cita</string>
+    <string name="crearDiagnostic">Crear Diagnòstic</string>
+    <string name="genDiagnostic">Generar Diagnòstic</string>
+    <string name="veureVacunes">Veure vacunes</string>
+    <string name="afegirVacuna">Afegir vacuna</string>
 
 </resources>

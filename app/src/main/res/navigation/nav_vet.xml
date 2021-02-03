@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_vet"
+    app:startDestination="@id/activityVeterinari">
+
+    <activity
+        android:id="@+id/activityVeterinari"
+        android:name="cat.copernic.veterinaryapp.ActivityVeterinari"
+        android:label="activity_veterinari"
+        tools:layout="@layout/activity_veterinari" />
+    <fragment
+        android:id="@+id/fragment_AnadirVacunaVet"
+        android:name="cat.copernic.veterinaryapp.Fragment_AnadirVacunaVet"
+        android:label="fragment__anadir_vacuna_vet"
+        tools:layout="@layout/fragment__anadir_vacuna_vet" />
+    <fragment
+        android:id="@+id/idVeureVacunes"
+        android:name="cat.copernic.veterinaryapp.Fragment_VerVacunasVet"
+        android:label="fragment__ver_vacunas_vet"
+        tools:layout="@layout/fragment__ver_vacunas_vet" />
+    <fragment
+        android:id="@+id/vet_generardiag2"
+        android:name="cat.copernic.veterinaryapp.vet_generardiag"
+        android:label="fragment_vet_generardiag"
+        tools:layout="@layout/fragment_vet_generardiag" />
+    <fragment
+        android:id="@+id/vet_generardiagnosticos2"
+        android:name="cat.copernic.veterinaryapp.vet_generardiagnosticos"
+        android:label="fragment_vet_generarcita"
+        tools:layout="@layout/fragment_vet_generarcita" />
+    <fragment
+        android:id="@+id/vet_modificarcita2"
+        android:name="cat.copernic.veterinaryapp.vet_modificarcita"
+        android:label="fragment_vet_modificarcita"
+        tools:layout="@layout/fragment_vet_modificarcita" />
+    <fragment
+        android:id="@+id/vet_vercitas2"
+        android:name="cat.copernic.veterinaryapp.vet_vercitas"
+        android:label="fragment_vet_vercitas"
+        tools:layout="@layout/fragment_vet_vercitas" />
+</navigation>

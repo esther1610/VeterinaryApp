@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_client"
+    app:startDestination="@id/homeUser">
+    <fragment
+        android:id="@+id/homeUser"
+        android:name="cat.copernic.veterinaryapp.homeUser"
+        android:label="fragment_home_user"
+        tools:layout="@layout/fragment_home_user" >
+        <action
+            android:id="@+id/action_homeUser_to_fragment_CliPedirCita"
+            app:destination="@id/fragment_CliPedirCita" />
+        <action
+            android:id="@+id/action_homeUser_to_fragment_CliVerCitas"
+            app:destination="@id/fragment_CliVerCitas" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_CliGestionMascotas2"
+        android:name="cat.copernic.veterinaryapp.Fragment_CliGestionMascotas"
+        android:label="fragment__cli_gestion_mascotas"
+        tools:layout="@layout/fragment__cli_gestion_mascotas" />
+    <fragment
+        android:id="@+id/fragment_CliPedirCita"
+        android:name="cat.copernic.veterinaryapp.Fragment_CliPedirCita"
+        android:label="fragment__cli_pedir_cita"
+        tools:layout="@layout/fragment__cli_pedir_cita" />
+    <fragment
+        android:id="@+id/fragment_CliVerCitas"
+        android:name="cat.copernic.veterinaryapp.Fragment_CliVerCitas"
+        android:label="fragment__cli_ver_citas"
+        tools:layout="@layout/fragment__cli_ver_citas" />
+    <fragment
+        android:id="@+id/fragment_PrincipalCliente"
+        android:name="cat.copernic.veterinaryapp.Fragment_PrincipalCliente"
+        android:label="fragment__principal_cliente"
+        tools:layout="@layout/fragment__principal_cliente" />
+    <activity
+        android:id="@+id/cierreSesion"
+        android:name="cat.copernic.veterinaryapp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/fragmentVerFAQ"
+        android:name="cat.copernic.veterinaryapp.FragmentVerFAQ"
+        android:label="fragment_ver_f_a_q"
+        tools:layout="@layout/fragment_ver_f_a_q" />
+    <fragment
+        android:id="@+id/viewUser2"
+        android:name="cat.copernic.veterinaryapp.ViewUser"
+        android:label="fragment_view_user"
+        tools:layout="@layout/fragment_view_user" />
+</navigation>
