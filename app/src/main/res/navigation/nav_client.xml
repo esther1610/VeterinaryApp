@@ -10,9 +10,6 @@
         android:label="fragment_home_user"
         tools:layout="@layout/fragment_home_user" >
         <action
-            android:id="@+id/action_homeUser_to_fragment_CliPedirCita"
-            app:destination="@id/fragment_CliPedirCita" />
-        <action
             android:id="@+id/action_homeUser_to_fragment_CliVerCitas"
             app:destination="@id/fragment_CliVerCitas" />
     </fragment>
