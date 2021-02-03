@@ -40,5 +40,6 @@
     <string name="genDiagnostic">Generar Diagnòstic</string>
     <string name="veureVacunes">Veure vacunes</string>
     <string name="afegirVacuna">Afegir vacuna</string>
+    <string name="demanarCita">Demanar cita</string>
 
 </resources>

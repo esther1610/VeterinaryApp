@@ -4,6 +4,9 @@
         android:id="@+id/fragment_CliVerCitas"
         android:title="@string/veureCites" />
     <item
+        android:id="@+id/fragment_CliPedirCita"
+        android:title="@string/demanarCita" />
+    <item
         android:id="@+id/viewUser2"
         android:title="@string/veureUsuari" />
     <item
