@@ -14,8 +14,6 @@ class ActivityVeterinari : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityVeterinariBinding>(this, R.layout.activity_veterinari)
-        //setContentView(R.layout.activity_veterinari)
-
 
         drawerLayout = binding.drawerLayoutVet
 

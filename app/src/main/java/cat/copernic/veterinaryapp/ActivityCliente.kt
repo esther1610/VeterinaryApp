@@ -14,7 +14,7 @@ class ActivityCliente : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityClienteBinding>(this, R.layout.activity_cliente)
-        //setContentView(R.layout.activity_cliente)
+    
         drawerLayout = binding.drawerLayoutUsr
 
         val navController = this.findNavController(R.id.myNavHostFragmentUsr)
