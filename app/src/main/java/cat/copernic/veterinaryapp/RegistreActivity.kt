@@ -34,7 +34,10 @@ class RegistreActivity : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         Log.i("user:", "" + currentUser)
-        // esborrar el contingut dels editText per prepar la activity per un nou registre
+        binding.idEmail.setText("")
+        binding.idContrasenya.setText("")
+        binding.idContraConfirm.setText("")
+
     }
 
     fun createUserWithEmailAndPassword(email: String, passwordd: String){

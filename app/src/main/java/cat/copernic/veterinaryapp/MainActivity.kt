@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val currentUser = auth.currentUser
         if (currentUser!=null){
             // obrim l'activity admin
-            val toHome = Intent(this, ActivityVeterinari::class.java)
+            val toHome = Intent(this, ActivityCliente::class.java)
             startActivity(toHome)
         }
     }
