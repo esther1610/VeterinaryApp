@@ -11,7 +11,7 @@
         android:label="activity_veterinari"
         tools:layout="@layout/activity_veterinari" />
     <fragment
-        android:id="@+id/fragment_AnadirVacunaVet"
+        android:id="@+id/afegirVac"
         android:name="cat.copernic.veterinaryapp.Fragment_AnadirVacunaVet"
         android:label="fragment__anadir_vacuna_vet"
         tools:layout="@layout/fragment__anadir_vacuna_vet" />
@@ -26,7 +26,7 @@
         android:label="fragment_vet_generardiag"
         tools:layout="@layout/fragment_vet_generardiag" />
     <fragment
-        android:id="@+id/vet_generardiagnosticos2"
+        android:id="@+id/vet_generardiagnostic"
         android:name="cat.copernic.veterinaryapp.vet_generardiagnosticos"
         android:label="fragment_vet_generarcita"
         tools:layout="@layout/fragment_vet_generarcita" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/vet_generardiagnosticos2"
+        android:id="@+id/vet_generardiagnostic"
         android:title="@string/crearCita" />
     <item
         android:id="@+id/vet_vercitas2"
