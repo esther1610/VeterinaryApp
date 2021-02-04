@@ -9,11 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VeterinaryApp">
-        <activity android:name=".ActivityVet"></activity>
         <activity android:name=".ActivityVeterinari" />
         <activity android:name=".ActivityCliente" />
         <activity android:name=".administrador.Administrador" />
-        <activity android:name=".Admin" />
         <activity android:name=".RegistreActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
