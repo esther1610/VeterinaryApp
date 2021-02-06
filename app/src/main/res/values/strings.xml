@@ -41,5 +41,14 @@
     <string name="veureVacunes">Veure vacunes</string>
     <string name="afegirVacuna">Afegir vacuna</string>
     <string name="demanarCita">Demanar cita</string>
+    <string name="txt_usr_usr">Usuari</string>
+    <string name="txt_usr_newClau">Nova contrasenya</string>
+    <string name="txt_usr_verificarContrasenya">Verificar Contrasenya</string>
+    <string name="txt_usr_nom">Nom</string>
+    <string name="txt_usr_cognoms">Cognoms</string>
+    <string name="txt_usr_dni">DNI</string>
+    <string name="txt_usr_tlfn">Teléfon</string>
+    <string name="txt_usr_fechaNac">Data de naixement</string>
+    <string name="txt_usr_direcc">Direcció</string>
 
 </resources>

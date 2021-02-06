@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cat.copernic.veterinaryapp.R
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +19,30 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class edit_perfil : Fragment() {
+    /*
+    * Variables para los campos del formulario
+    *
+    * inicializo en cadena vacia para no aceptar null
+    * excepto date, que si le permito null, los campos estan en su layout fragment_edit_perfil.xml
+    * */
+    private var usuari: String = ""
+    private var novaContrasenya: String = ""
+    private var verificarContrasenya: String = ""
+    private var nomUsuari: String = ""
+    private var cognomsUsuari: String = ""
+    private var dniUsuari: String = ""
+    private var telUsuari: String = ""
+    private var dataNaixUsuari: Date? = null
+    private var dirrecioUsuari: String = ""
+
+    /*Jose: Como este fragment es edit deberiamos primero recuperar los datos de la base de datos y mostrar */
+
+
+
+
+
+
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
