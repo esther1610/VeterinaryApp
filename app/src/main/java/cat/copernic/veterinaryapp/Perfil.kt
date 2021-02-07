@@ -1,8 +1,10 @@
+package cat.copernic.veterinaryapp
+
 import android.media.Image
 import java.util.*
 
 /**
- * Clase Kotlin del tipo Perfil para almacenar los datos de perfil de usuarios de la aplicación
+ * Clase Kotlin del tipo cat.copernic.veterinaryapp.Perfil para almacenar los datos de perfil de usuarios de la aplicación
  */
 class Perfil (nombre: String = "", apellidos: String = "", telefono: String = "", fecha_nac: Date? = null, usuario: String = "", dni: String = "",
               rol: String = "Cliente", foto: Image? = null, direccion: String = "") {
@@ -17,7 +19,7 @@ class Perfil (nombre: String = "", apellidos: String = "", telefono: String = ""
 
 /*
 * Si necesitamos hacer la sobrecarga compatible con java deberiamos cambiar la clase de esta manera
-class Perfil @JvmOverloads constructor(nombre: String = "", apellidos: String = "", telefono: String = "", fecha_nac: Date? = null, usuario: String = "", dni: String = "",
+class cat.copernic.veterinaryapp.Perfil @JvmOverloads constructor(nombre: String = "", apellidos: String = "", telefono: String = "", fecha_nac: Date? = null, usuario: String = "", dni: String = "",
               rol: String = "Cliente", foto: Image? = null, direccion: String = "")
 *
 * */

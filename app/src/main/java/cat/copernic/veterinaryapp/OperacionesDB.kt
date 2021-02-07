@@ -1,3 +1,5 @@
+import cat.copernic.veterinaryapp.Perfil
+
 /**
  * Clase interface para trabajar con la base de datos
  * Por si en el futuro queremos conectar a otra base de datos tendremos la coherencia de la interfaz con los metodos necesarios

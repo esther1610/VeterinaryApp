@@ -1,3 +1,7 @@
+package cat.copernic.veterinaryapp
+
+import OperacionesDBPerfil
+
 /**
  * Aqui esta el codigo para añadir a la db Firebase los perfiles
  *
