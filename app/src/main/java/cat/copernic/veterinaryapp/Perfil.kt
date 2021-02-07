@@ -7,7 +7,7 @@ import java.util.*
  * Clase Kotlin del tipo cat.copernic.veterinaryapp.Perfil para almacenar los datos de perfil de usuarios de la aplicación
  */
 class Perfil (nombre: String = "", apellidos: String = "", telefono: String = "", fecha_nac: Date? = null, usuario: String = "", dni: String = "",
-              rol: String = "Cliente", foto: Image? = null, direccion: String = "") {
+              rol: String = "Cliente", foto: Image? = null, direccion: DireccionClass?) {
 /**
  * Se permite crear el constructor vació, si es el caso los valores seran cadena de texto sin nada o null, excepto el rol
  * si el campo rol se deja en blanco por defecto se pone el rol Cliente, que es el rol normal de un cliente (el rol mas bajo)
