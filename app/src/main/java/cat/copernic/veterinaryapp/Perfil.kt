@@ -16,8 +16,17 @@ import java.util.*
  * @direccion, direccion del perfil
  *
  */
-class Perfil (nombre: String = "", apellidos: String = "", telefono: String = "", fecha_nac: Date? = null, usuario: String = "", dni: String = "",
-              rol: String = "Cliente", foto: Image? = null, direccion: String = "") {
+class Perfil (){
+    var nombre: String = ""
+    var apellidos: String = ""
+    var telefono: String = ""
+    val fecha_nac: Date? = null
+    val usuario: String = ""
+    val dni: String = ""
+    val rol: String = "cliente"
+    val foto: Image? = null
+    val direccion: String = ""
+
 /**
  *
  * Se permite crear el constructor vació, si es el caso los valores seran cadena de texto sin nada o null, excepto el rol
@@ -34,9 +43,5 @@ class cat.copernic.veterinaryapp.Perfil @JvmOverloads constructor(nombre: String
               rol: String = "Cliente", foto: Image? = null, direccion: String = "")
 *
 * */
-    init {
-        //Aqui codigo de inicialización por si lo necesitamos.
-
-    }
 
 }
