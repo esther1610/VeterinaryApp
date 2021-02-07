@@ -2,6 +2,10 @@ package cat.copernic.veterinaryapp
 
 
 /**
+ * ¡¡ De momento se ha decidido no utilizar esta clase!!
+ * Utilizaremos un String simple para la dirección, dejo la clase por si en el futuro ampliamos
+ *
+ *
  * La clase DireccionClass almacenará los datos de la direccion, de momento se permiten los datos null por comodidad a la hora de crear la aplicacion
  * despues se podran poner datos obligatorios.
  *
