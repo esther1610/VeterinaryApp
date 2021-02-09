@@ -18,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_rol"
+        android:id="@+id/lvlRol"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="rol"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/EditTextUsuari"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_perfil" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/EditTextUsuari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/EditTextNom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -116,7 +116,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/EditTextCognoms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -127,7 +127,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/EditTextDni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -138,7 +138,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/EditTextTel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -148,7 +148,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/EditTextDataN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -158,7 +158,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/EditTextDir"
         android:layout_width="209dp"
         android:layout_height="120dp"
         android:ems="10"
