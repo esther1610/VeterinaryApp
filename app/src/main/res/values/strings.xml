@@ -13,8 +13,9 @@
     <!--Main -->
     <string name="msgBuit">"Omple el camp d'email."</string>
 
-    <!-- Menu General -->
+    <!-- Menu Administrador -->
     <string name="cerrar">Tancar sesió</string>
+    <string name="crear_faq">Crea FAQ</string>
 
     <!-- Navegacion del administrador -->
     <string name="nombre_home_admin">Usuaris</string>
@@ -49,8 +50,12 @@
     <string name="txt_usr_dni">DNI</string>
     <string name="txt_usr_tlfn">Teléfon</string>
     <string name="txt_usr_fechaNac">Data de naixement</string>
-    <string name="txt_usr_direcc">Direcció</string>
+    <string name="txt_usr_direcc">Adreça</string>
     <string name="btn_chng_pass">Canviar Contrasenya</string>
     <string name="txtBtn_save">Guardar</string>
+
+    <!-- Editar usuario (con merpisos de administrador) -->
+    <string name="correo_elec">Correu electronic</string>
+    <string name="clave_perfil">Contrasenya</string>
 
 </resources>

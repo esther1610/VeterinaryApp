@@ -33,19 +33,18 @@
         android:id="@+id/edit_perfil"
         android:name="cat.copernic.veterinaryapp.edit_perfil"
         android:label="Editar pefil"
-        tools:layout="@layout/fragment_edit_perfil" />
-    <activity
-        android:id="@+id/cierreSesion"
-        android:name="cat.copernic.veterinaryapp.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/fragment_edit_perfil" >
+        <action
+            android:id="@+id/action_edit_perfil_to_change"
+            app:destination="@id/change" />
+    </fragment>
     <fragment
         android:id="@+id/viewUser"
         android:name="cat.copernic.veterinaryapp.ViewUser"
         android:label="Ver Usuario"
         tools:layout="@layout/fragment_view_user">
         <action
-            android:id="@+id/action_viewUser_to_change"
-            app:destination="@id/change" />
+            android:id="@+id/action_viewUser_to_edit_perfil"
+            app:destination="@id/edit_perfil" />
     </fragment>
 </navigation>

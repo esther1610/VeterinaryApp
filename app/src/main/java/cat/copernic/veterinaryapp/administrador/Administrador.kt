@@ -12,10 +12,11 @@ import androidx.navigation.ui.NavigationUI
 import cat.copernic.veterinaryapp.MainActivity
 import cat.copernic.veterinaryapp.R
 import cat.copernic.veterinaryapp.databinding.ActivityAdministradorBinding
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class Administrador : AppCompatActivity() {
+class Administrador : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +37,21 @@ class Administrador : AppCompatActivity() {
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.cierreSesion -> {
+                Firebase.auth.signOut()
+                val toInit = Intent(this, MainActivity::class.java)
+                startActivity(toInit)
+                true
+            }
+            else -> false
+        }
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.cierreSesion -> {
-                Toast.makeText(this, "Clicked item one", Toast.LENGTH_SHORT).show()
-                Firebase.auth.signOut()
                 val toInit = Intent(this, MainActivity::class.java)
                 startActivity(toInit)
                 true

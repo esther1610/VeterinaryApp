@@ -9,9 +9,9 @@
         android:id="@+id/crea_pregunta"
         android:title="Crea FAQ" />
     <item
-        android:id="@+id/cierreSesion"
-        android:title="@string/cerrar" />
-    <item
         android:id="@+id/viewUser"
         android:title="Ver Pefil" />
+    <item
+        android:id="@+id/cierreSesion"
+        android:title="@string/cerrar" />
 </menu>
