@@ -16,8 +16,9 @@ import java.util.*
  * @direccion, direccion del perfil
  *
  */
-class Perfil() {
-    var nombre: String = ""
+class Perfil(){
+
+    var nombre: String? = ""
     var apellidos: String = ""
     var telefono: String = ""
     var fecha_nac: Date? = null
@@ -26,12 +27,12 @@ class Perfil() {
     var rol: String = "cliente"
     var foto: Image? = null
     var direccion: String = ""
-
+/*
     get() = field
     set(value) {
         field = value
     }
-
+*/
     /**
      *
      * Se permite crear el constructor vació, si es el caso los valores seran cadena de texto sin nada o null, excepto el rol
