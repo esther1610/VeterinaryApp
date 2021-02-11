@@ -1,10 +1,14 @@
 package cat.copernic.veterinaryapp
 
-class comprobaciones {
+import java.util.regex.Pattern
 
-    /* En esta clase podemos añadir varias comprobaciones
+class Comprobaciones {
+
+    /**
+     En esta clase podemos añadir varias comprobaciones
     * por ejemplo que una cadena contenga algo
-    * que un némero este comprendido entre n valores, etc*/
+    * que un némero este comprendido entre n valores, etc
+    * */
 
 
     /**
@@ -24,5 +28,15 @@ class comprobaciones {
            resultado = false
         }
         return resultado
+    }
+
+    /**
+     * Analiza si un número de telefono es valido
+     *
+     * @return verdadero si es valido
+     */
+    public fun validarMovil(movil: String): Boolean {
+        val pattern: Pattern = Pattern.compile("[0-9]{9}")
+        return pattern.matcher(movil).matches()
     }
 }

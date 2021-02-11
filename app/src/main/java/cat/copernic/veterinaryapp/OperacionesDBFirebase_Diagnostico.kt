@@ -12,7 +12,8 @@ class OperacionesDBFirebase_Diagnostico: OperacionesDBDiagnostico {
                 "fecha"  to diagnostico.fecha.toString() ,
                 "id" to diagnostico.id.toString(),
                 "paciente" to diagnostico.paciente.toString(),
-                "prospecto" to diagnostico.prospecto.toString(),
+                "prospecto" to diagnostico.diagnostico.toString(), //Prospecto = diagnostico?
+                "medicamento" to diagnostico.medicamento.toString(), //Campo añadido
                 "prox_visita" to diagnostico.prox_visita.toString() ,
                 "veterinario" to diagnostico.veterinario.toString()
             )

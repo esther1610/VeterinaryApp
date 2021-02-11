@@ -21,7 +21,6 @@ class OperacionesDBFirebase_Perfil: OperacionesDBPerfil {
 
      */
     override fun guardar(perfil: Perfil): Boolean {
-        //Sin probar
         db.collection("Perfil").document(perfil.usuario).set(
             hashMapOf(
                 "apellidos"  to perfil.apellidos.toString() ,
@@ -31,6 +30,7 @@ class OperacionesDBFirebase_Perfil: OperacionesDBPerfil {
                 "nombre" to perfil.nombre.toString(),
                 "telefono" to perfil.telefono.toString(),
                 "usuario" to perfil.usuario.toString()
+
             )
         )
         return true //De momento meramente decorativo, pero lo pide la interfaz, por si hay que capturar exceptions.
