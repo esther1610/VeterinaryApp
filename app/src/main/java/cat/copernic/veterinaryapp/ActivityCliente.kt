@@ -13,20 +13,29 @@ class ActivityCliente : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
-        val binding = DataBindingUtil.setContentView<ActivityClienteBinding>(this, R.layout.activity_cliente)
-    
+        //val binding = DataBindingUtil.setContentView<ActivityClienteBinding>(this, R.layout.activity_cliente)
+        val binding: ActivityClienteBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_cliente)
+
+
         drawerLayout = binding.drawerLayoutUsr
 
         val navController = this.findNavController(R.id.myNavHostFragmentUsr)
 
-        NavigationUI.setupActionBarWithNavController(this,navController, drawerLayout)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
         NavigationUI.setupWithNavController(binding.navViewUsr, navController)
+
 
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragmentUsr)
         return NavigationUI.navigateUp(navController, drawerLayout)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 }

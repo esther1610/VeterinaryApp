@@ -16,26 +16,31 @@ import java.util.*
  * @direccion, direccion del perfil
  *
  */
-class Perfil (){
+class Perfil() {
     var nombre: String = ""
     var apellidos: String = ""
     var telefono: String = ""
-    val fecha_nac: Date? = null
-    val usuario: String = ""
-    val dni: String = ""
-    val rol: String = "cliente"
-    val foto: Image? = null
-    val direccion: String = ""
+    var fecha_nac: Date? = null
+    var usuario: String = ""
+    var dni: String = ""
+    var rol: String = "cliente"
+    var foto: Image? = null
+    var direccion: String = ""
 
-/**
- *
- * Se permite crear el constructor vació, si es el caso los valores seran cadena de texto sin nada o null, excepto el rol
- * si el campo rol se deja en blanco por defecto se pone el rol Cliente, que es el rol normal de un cliente (el rol mas bajo)
- *
- *
- * El campo fecha de nacimiento es del tipo Date, que despues podemos cambiar por otra clase si la hay que interese mas
- * El campo foro es del tipo Image y puede ser null, si hay otra clase que sea mas idonea lo podemos cambiar en el futuro
- */
+    get() = field
+    set(value) {
+        field = value
+    }
+
+    /**
+     *
+     * Se permite crear el constructor vació, si es el caso los valores seran cadena de texto sin nada o null, excepto el rol
+     * si el campo rol se deja en blanco por defecto se pone el rol Cliente, que es el rol normal de un cliente (el rol mas bajo)
+     *
+     *
+     * El campo fecha de nacimiento es del tipo Date, que despues podemos cambiar por otra clase si la hay que interese mas
+     * El campo foro es del tipo Image y puede ser null, si hay otra clase que sea mas idonea lo podemos cambiar en el futuro
+     */
 
 /*
 * Si necesitamos hacer la sobrecarga compatible con java deberiamos cambiar la clase de esta manera

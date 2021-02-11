@@ -53,6 +53,14 @@
     <string name="txt_usr_direcc">Adreça</string>
     <string name="btn_chng_pass">Canviar Contrasenya</string>
     <string name="txtBtn_save">Guardar</string>
+    <string name="hintNom">Nom</string>
+    <string name="hintUser">User</string>
+    <string name="hintCognoms">Cognoms</string>
+    <string name="hintDni">DNI</string>
+    <string name="hintTelefon">Telefon</string>
+    <string name="hintDataN">Data de naixement</string>
+    <string name="hintDireccio">Direcció</string>
+    <string name="fotoPerf">Fotografia de perfil</string>
 
     <!-- Editar usuario (con merpisos de administrador) -->
     <string name="correo_elec">Correu electronic</string>
