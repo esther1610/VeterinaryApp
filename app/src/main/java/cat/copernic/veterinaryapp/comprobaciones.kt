@@ -21,7 +21,7 @@ class comprobaciones {
                 resultado = false
             }
         }else{
-           resultado = false
+            resultado = false
         }
         return resultado
     }

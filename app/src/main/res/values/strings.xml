@@ -66,4 +66,10 @@
     <string name="correo_elec">Correu electronic</string>
     <string name="clave_perfil">Contrasenya</string>
 
+    <!-- Array para el Spinner de roles -->
+    <string-array name="rols">
+        <item>Client</item>
+        <item>Veterinari</item>
+        <item>Administrador</item>
+    </string-array>
 </resources>

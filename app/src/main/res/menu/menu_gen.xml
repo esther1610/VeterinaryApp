@@ -14,4 +14,7 @@
     <item
         android:id="@+id/cierreSesion"
         android:title="@string/cerrar" />
+    <item
+        android:id="@+id/crear_perfil"
+        android:title="Crear nuevo perfil" />
 </menu>
