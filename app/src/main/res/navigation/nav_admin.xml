@@ -47,4 +47,9 @@
             android:id="@+id/action_viewUser_to_edit_perfil"
             app:destination="@id/edit_perfil" />
     </fragment>
+    <fragment
+        android:id="@+id/crear_perfil"
+        android:name="cat.copernic.veterinaryapp.administrador.crear_perfil"
+        android:label="fragment_crear_perfil"
+        tools:layout="@layout/fragment_crear_perfil" />
 </navigation>
