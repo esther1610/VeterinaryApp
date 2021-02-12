@@ -1,59 +1,70 @@
 package cat.copernic.veterinaryapp
 
+import android.content.BroadcastReceiver
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.databinding.DataBindingUtil
+import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
+import cat.copernic.veterinaryapp.Perfil
+import java.time.LocalDateTime
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ViewUser.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ViewUser : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
+
+    }
+    lateinit var perfil : Perfil
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_user, container, false)
+
+        var binding = DataBindingUtil.inflate<FragmentViewUserBinding>(layoutInflater, R.layout.fragment_view_user, container, false)
+        //Aqui se tinenque recuperar los datos y asignarlos a perfil para que se muestren en pantalla
+        perfil = Perfil("Jose","Colacios")
+        binding.perfil = perfil //Paso el perfil a la vista del fragment
+
+        binding.buttonSave.setOnClickListener {
+            var comprobar = Comprobaciones() //Inicializo la clase de comprobaciones
+
+            //Pasar el contenido de los text a el data class
+            if (comprobar.contieneTexto(binding.EditTextNom.text.toString()))//Comprueba que tiene texto
+                perfil.nombre = binding.EditTextNom.text.toString()
+
+            //perfil.fecha_nac = binding.EditTextDataN.text.toString() //Hay que pasarlo a fecha
+            perfil.usuario = binding.EditTextUsuari.text.toString() //Hay que recuperar el mail de user actual, con sharedPreferences y el campo dejarlo en bloqueado para la no edición
+            //perfil.rol el user no puede editar el rol
+            perfil.dni = binding.EditTextDni.text.toString() //El dni tampoco lo deberia modificar el usuario, unicamente recuperar la info
+            if (comprobar.contieneTexto(binding.EditTextDir.text.toString()))//Comprueba que tiene texto
+                perfil.direccion = binding.EditTextDir.text.toString()
+            if (comprobar.contieneTexto(binding.EditTextCognoms.text.toString()))//Comprueba que tiene texto
+                perfil.apellidos = binding.EditTextCognoms.text.toString()
+            //perfil.foto //clase foto por hacer
+            if (comprobar.validarMovil(binding.EditTextTel.text.toString()))
+                perfil.telefono = binding.EditTextTel.text.toString()
+            else
+                //Mensaje numero no valido, cambiarlo por un mensaje emergente.
+                Toast.makeText(activity, "Número de telefono no valido", Toast.LENGTH_LONG).show()
+
+
+
+            //Añadir los datos a la base de datos
+            val opdiag = OperacionesDBFirebase_Perfil()
+            opdiag.guardar(perfil)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ViewUser.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ViewUser().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
