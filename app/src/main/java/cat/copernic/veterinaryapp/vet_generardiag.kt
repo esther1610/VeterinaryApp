@@ -23,13 +23,19 @@ class vet_generardiag : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         //Hago el binding
-        var binding = inflate<FragmentVetGenerardiagBinding>(inflater, R.layout.fragment_vet_generarcita, container, false)
+        var binding = inflate<FragmentVetGenerardiagBinding>(
+            inflater,
+            R.layout.fragment_vet_generarcita,
+            container,
+            false
+        )
         //var diagnostico = Diagnostico(null, "", "xxx","Asesinato","Pastis",null,"Pepito") //Muestra llenar datos
 
         //De momento sin contenido, se lo paso a la vista del xml
         var diagnostico = Diagnostico()
-        binding.diagnostico = diagnostico
+        //binding.diagnostico = diagnostico
 
         //Click boton enviar
         binding.btnEnviar.setOnClickListener {
@@ -41,10 +47,12 @@ class vet_generardiag : Fragment() {
             //diagnostico.prox_visita = binding.diagnostico.prox_visita
             //diagnostico.paciente //Buscar el funcionamiento del campo.
 
+
             var opdiag = OperacionesDBFirebase_Diagnostico()
             opdiag.guardar(diagnostico) //Guardo los datos en la db, lo mismo que modificar si los campos estan llenos por el que se hace la busqueda.
         }
         return binding.root
+
     }
 
 

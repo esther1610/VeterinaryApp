@@ -69,7 +69,7 @@
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@{diagnostico.prospecto}"
+            android:text="@{diagnostico.medicamento}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
