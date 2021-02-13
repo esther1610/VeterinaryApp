@@ -18,7 +18,6 @@ class HoraAdapter(var list: ArrayList<String>): RecyclerView.Adapter<HoraAdapter
             val elemento: TextView=itemView.findViewById(R.id.hora_disp)
             elemento.text = hora
             itemView.setOnClickListener{
-                Toast.makeText(itemView.context, "hecho", Toast.LENGTH_LONG).show()
                 vet_generardiagnosticos.horaSelec = hora
             }
         }

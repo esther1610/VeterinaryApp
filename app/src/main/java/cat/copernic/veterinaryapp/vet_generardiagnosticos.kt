@@ -1,23 +1,16 @@
 package cat.copernic.veterinaryapp
 
-import android.annotation.SuppressLint
-import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.LinearLayout
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.veterinaryapp.administrador.HoraAdapter
 import cat.copernic.veterinaryapp.databinding.FragmentVetGenerarcitaBinding
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,11 +18,10 @@ import kotlin.collections.ArrayList
 class vet_generardiagnosticos : Fragment() {
 
     private lateinit var binding: FragmentVetGenerarcitaBinding
+    var user = Firebase.auth.currentUser
     val horas = ArrayList<String>()
-    @SuppressLint("SimpleDateFormat")
     val formFecha1: SimpleDateFormat = SimpleDateFormat("dd/MM/yy")
     val db = FirebaseFirestore.getInstance()
-    //var horaSelec : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +39,8 @@ class vet_generardiagnosticos : Fragment() {
     }
 
     fun createUI(){
-        var fecha : Date
+        var fecha : Date? = null
+        var id : String = ""
 
         horas.add("7:00")
         horas.add("7:30")
@@ -73,12 +66,38 @@ class vet_generardiagnosticos : Fragment() {
 
             val dd : String = "" + i3 + "/" + (i2 + 1) + "/" + i
             fecha = this.formFecha1.parse(dd)
-            Log.w("Dia", dd)
+            id = "" + i3 + "" + (i2 + 1) + "" + i
+        }
+
+        binding.addCita.setOnClickListener {
+            var mensage = ""
+            if(!(binding.editTextTextPersonName7.equals(""))){
+                db.collection("Visita").document(id + horaSelec).set(
+                    hashMapOf(
+                        "Cliente" to binding.editTextTextPersonName7,
+                        "Veterinari" to user!!.email,
+                        "Fecha" to fecha,
+                        "Hora" to horaSelec
+                    )
+                )
+            }else{
+                mensage = "Introdizca cliente"
+                missatgeEmergent(mensage)
+            }
 
         }
     }
 
     companion object{
         var horaSelec : String = ""
+    }
+
+    fun missatgeEmergent(missatge: String) {
+        val builder = android.app.AlertDialog.Builder(context)
+        builder.setTitle("Error")
+        builder.setMessage(missatge)
+        builder.setPositiveButton("Aceptar") { dialog, which -> }
+        val dialog: android.app.AlertDialog = builder.create()
+        dialog.show()
     }
 }
