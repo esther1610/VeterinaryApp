@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import cat.copernic.veterinaryapp.Comprobaciones
+import cat.copernic.veterinaryapp.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.Perfil
 import cat.copernic.veterinaryapp.databinding.FragmentCrearPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,10 +22,9 @@ class crear_perfil : Fragment() {
 
     private lateinit var binding: FragmentCrearPerfilBinding
     private lateinit var mAuth: FirebaseAuth
-    var nuev_perf = Perfil();
     val formFecha1: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
-    val formFecha2: SimpleDateFormat = SimpleDateFormat("dd-MM-yy")
-    var fechita: Date? = null
+    var fecha: Date? = null
+    lateinit var perfil : Perfil
     val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
@@ -32,14 +33,88 @@ class crear_perfil : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentCrearPerfilBinding.inflate(inflater, container, false)
+        mAuth = FirebaseAuth.getInstance()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        perfil = Perfil()
+
+        binding.botReg.setOnClickListener {
+            val comprobar = Comprobaciones()
+            var mensage = ""
+            val nounu = "finYyata"
+
+            perfil.rol = binding.roles.selectedItem.toString()
+
+            if (comprobar.contieneTexto(binding.regNom.text.toString())) {
+                perfil.nombre = binding.regNom.text.toString()
+                Log.d(nounu, "Nombre Correcto")
+
+            }else{
+                mensage = "Nombre incorrecto\n"
+            }
+            if ((binding.regFecha.text.toString().length < 10 || binding.regFecha.text.toString().length > 10)){
+                perfil.fecha_nac = binding.regFecha.text.toString()
+                Log.d(nounu, "Fecha correcta")
+            }else
+                mensage = "Fecha incorrecto"
+
+            if (comprobar.validaCorreo(binding.regCorreo.text.toString())) {
+                perfil.usuario = binding.regCorreo.text.toString()
+                Log.d(nounu, "Correo Correcto")
+            } else
+                mensage = "Correo incorrecto\n"
+
+            if (comprobar.validaClave(binding.regPas.text.toString())) {
+                if (binding.regPas.text.toString().equals(binding.regRepass.text.toString())){
+                    Log.d(nounu, "Contraseñas Correctas\n ")
+                } else
+                    mensage = "Las contraseñas no coinciden\n "
+            } else
+                mensage = "Correo incorrecto\n"
+
+            perfil.dni = binding.regDni.text.toString() //El dni tampoco lo deberia modificar el usuario, unicamente recuperar la info
+
+            if (comprobar.contieneTexto(binding.regDir.text.toString())){ //Comprueba que tiene texto
+                perfil.direccion = binding.regDir.text.toString()
+                Log.d(nounu, "DNI Bien")
+            } else
+                mensage = "Tiene que rellenar el campo direccion\n"
+
+            if (comprobar.contieneTexto(binding.regApe.text.toString())){ //Comprueba que tiene texto
+                perfil.apellidos = binding.regApe.text.toString()
+                Log.d(nounu, "Apellidos Bien")
+            } else
+                mensage = "Tiene que rellenar el campo apellidos\n"
+
+            //perfil.foto //clase foto por hacer
+            if (comprobar.validarMovil(binding.regTel.text.toString())){
+                perfil.telefono = binding.regTel.text.toString()
+                Log.d(nounu, "Telefono Bien")
+            }
+            else
+                mensage = "Telefono incorrecto\n"
+
+
+            if (mensage.equals("")){
+                mAuth.createUserWithEmailAndPassword(binding.regCorreo.text.toString(), binding.regPas.text.toString())
+                val opdiag = OperacionesDBFirebase_Perfil()
+                opdiag.crear(perfil)
+                missatgeEmergent("Informació", "Usuari registrat")
+                updateUI()
+            }else{
+                missatgeEmergent("Error", mensage)
+                mensage = ""
+            }
+
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        mAuth = FirebaseAuth.getInstance()
         updateUI()
-        registreUsuari()
     }
 
     private fun updateUI() {
@@ -51,97 +126,7 @@ class crear_perfil : Fragment() {
         binding.regApe.setText("")
         binding.regFecha.setText("")
         binding.regTel.setText("")
-        binding.regDni.setText("")
-    }
-
-    fun createUserWithEmailAndPassword(email: String, passwordd: String){
-
-        val mensage = comproeva()
-
-        if(mensage.equals("")){
-            missatgeEmergent("Error", mensage)
-        }else{
-            binding.botReg.setOnClickListener(){
-                nuev_perf.nombre = binding.regNom.text.toString()
-                db.collection("Perfil").document(binding.regCorreo.text.toString()).set(
-                    hashMapOf(
-                        "Rol" to binding.roles.selectedItem,
-                        "Nom" to binding.regNom,
-                        "Cognoms" to binding.regApe,
-                        "Correu elecronic" to binding.regCorreo,
-                        "DNI" to binding.regDni,
-                        "Data de neixement" to binding.regFecha,
-                        "Telefon" to binding.regTel,
-                        "Direcció" to binding.regDir
-                    )
-                )
-            }
-            mAuth!!.createUserWithEmailAndPassword(email, passwordd)
-                .addOnCompleteListener { registro ->
-                    if (registro.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("Èxit", "createUserWithEmail:success")
-                        val user = mAuth!!.currentUser
-                        updateUI()
-                        missatgeEmergent("Informació", "Usuari registrat")
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("Error", "createUserWithEmail:failure", registro.exception)
-                        missatgeEmergent("Error", "Error en l'autentificació")
-                        updateUI()
-
-                    }
-                }
-        }
-
-
-    }
-
-    private fun comproeva() : String{
-        var comprobar = Comprobaciones()
-        var error = ""
-        if (!(comprobar.contieneTexto(binding.regNom.text.toString()))){
-            error += "Nombre incorrecto"
-        }
-        if (!(comprobar.contieneTexto(binding.regApe.text.toString()))){
-            error += "El apellido no es correcto"
-        }
-        if (!(comprobar.contieneTexto(binding.regCorreo.text.toString()))){
-            error += "Correo incorrecto"
-        }
-        if (!(comprobar.contieneTexto(binding.regDir.text.toString()))){
-            error += "Direccion incorrecta"
-        }
-        if (!(comprobar.contieneTexto(binding.regTel.text.toString()))){
-            error += "Telefono incorrecto"
-        }
-        if (!(comprobar.validaClave(binding.regPas.text.toString()))){
-            error += "Contraseña incorrecta"
-        }else if (binding.regPas.text.toString() != binding.regRepass.text.toString()){
-            error = "La contraseñas no coinciden"
-        }
-        if (!(comprobar.validaFecha(binding.regFecha.text.toString()))){
-            error += "Fecha incorrecta"
-        }
-        return error
-
-    }
-
-    private fun registreUsuari(){
-
-        if(!binding.regCorreo.text.isEmpty() && !binding.regPas.text.isEmpty() && !binding.regRepass.text.isEmpty()){
-            if(binding.regPas.text.toString().equals(binding.regRepass.text.toString())){
-                if(binding.regPas.text.toString().length>5){
-                    createUserWithEmailAndPassword(binding.regCorreo.text.toString(), binding.regPas.text.toString())
-                }else{
-                    missatgeEmergent("Error", "La contrasenya ha de contenir mínim 6 caràcters")
-                }
-            }else{
-                missatgeEmergent("Error", "Les contrasenyes no són iguals")
-            }
-        }else{
-            missatgeEmergent("Error", "S'han d'omplir tots els camps")
-        }
+        binding.regDir.setText("")
     }
 
     fun missatgeEmergent(titol: String, missatge: String) {

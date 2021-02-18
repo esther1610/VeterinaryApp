@@ -20,6 +20,24 @@ class OperacionesDBFirebase_Perfil: OperacionesDBPerfil {
         en formulario se deveria revisar mas adelante que no se pueda modificar usuario para que no pueda guardar ese campo con otro mail, porque eso crearia otro registro
 
      */
+
+    override fun crear(perfil: Perfil): Boolean {
+        db.collection("Perfil").document(perfil.usuario).set(
+            hashMapOf(
+                "rol" to perfil.rol,
+                "apellidos"  to perfil.apellidos.toString() ,
+                "direccion" to perfil.direccion.toString(),
+                "dni" to perfil.dni.toString(),
+                "fecha_nacimiento" to perfil.fecha_nac.toString(),
+                "nombre" to perfil.nombre.toString(),
+                "telefono" to perfil.telefono.toString(),
+                "usuario" to perfil.usuario.toString()
+
+            )
+        )
+        return true //De momento meramente decorativo, pero lo pide la interfaz, por si hay que capturar exceptions.
+    }
+
     override fun guardar(perfil: Perfil): Boolean {
         db.collection("Perfil").document(perfil.usuario).set(
             hashMapOf(
