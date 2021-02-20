@@ -15,4 +15,7 @@
     <item
         android:id="@+id/cierreSesion"
         android:title="@string/cerrar" />
+    <item
+        android:id="@+id/fragment_CliGestionMascotas2"
+        android:title="@string/crearMascota" />
 </menu>
