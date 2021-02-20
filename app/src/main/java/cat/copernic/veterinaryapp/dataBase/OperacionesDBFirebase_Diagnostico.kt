@@ -1,5 +1,6 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.dataBase
 
+import cat.copernic.veterinaryapp.Diagnostico
 import com.google.firebase.firestore.FirebaseFirestore
 
 class OperacionesDBFirebase_Diagnostico: OperacionesDBDiagnostico {

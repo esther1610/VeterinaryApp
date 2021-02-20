@@ -1,6 +1,7 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.dataBase
 
 import OperacionesDBPerfil
+import cat.copernic.veterinaryapp.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
 
 /**

@@ -1,6 +1,5 @@
 package cat.copernic.veterinaryapp
 
-import android.content.BroadcastReceiver
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,9 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
-import cat.copernic.veterinaryapp.Perfil
-import java.time.LocalDateTime
-import java.util.*
+import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Perfil
 
 
 class ViewUser : Fragment() {
