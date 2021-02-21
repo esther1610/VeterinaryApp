@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import cat.copernic.veterinaryapp.Perfil
+import cat.copernic.veterinaryapp.modelos.Perfil
 import cat.copernic.veterinaryapp.R
 
 

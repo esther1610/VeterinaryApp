@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import cat.copernic.veterinaryapp.databinding.ActivityRegistreBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -50,6 +51,14 @@ class RegistreActivity : AppCompatActivity() {
                     val user = mAuth!!.currentUser
                     updateUI(user)
                     missatgeEmergent("Informació", "Usuari registrar")
+
+                    //--Jose: Añado porcion de codigo para crear la db del usuario donde se almacena rol etc
+                    val opdiag = OperacionesDBFirebase_Perfil()
+                    if (user != null) {
+                        Log.e("Jose",user.email.toString())
+                        opdiag.crearPerfilUsuario(user.email.toString(),"")
+                    }
+                    //----
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Error", "createUserWithEmail:failure", task.exception)

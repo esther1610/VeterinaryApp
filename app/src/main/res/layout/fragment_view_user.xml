@@ -6,7 +6,7 @@
     <data>
         <variable
             name="perfil"
-            type="cat.copernic.veterinaryapp.Perfil" />
+            type="cat.copernic.veterinaryapp.modelos.Perfil" />
 
     </data>
 
@@ -174,7 +174,7 @@
             android:ems="10"
             android:hint="@string/hintDataN"
             android:inputType="date"
-            android:text="@{perfil.fecha_nac.toString()}"
+
             app:layout_constraintBaseline_toBaselineOf="@+id/textView22"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.515"
@@ -188,7 +188,7 @@
             android:gravity="start|top"
             android:hint="@string/hintDireccio"
             android:inputType="textMultiLine"
-            android:text="@{perfil.direccion.toString()}"
+            android:text="@{perfil.direccion}"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.58"

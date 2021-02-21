@@ -1,4 +1,4 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.modelos
 
 data class Mascota (
     var nom: String = "",

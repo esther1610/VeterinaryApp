@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cat.copernic.veterinaryapp.Comprobaciones
-import cat.copernic.veterinaryapp.Perfil
+import cat.copernic.veterinaryapp.modelos.Perfil
 import cat.copernic.veterinaryapp.databinding.FragmentCrearPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

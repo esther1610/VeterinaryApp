@@ -1,6 +1,8 @@
 package cat.copernic.veterinaryapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,6 +10,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import cat.copernic.veterinaryapp.administrador.Administrador
+import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthMultiFactorException
@@ -18,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,6 +110,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
                         seHaLogueado(user)
+
+                        guardarPreferencias(user)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, task.exception.toString(), task.exception)
@@ -125,6 +131,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     // [END_EXCLUDE]
                 }
+    }
+
+    /**
+     * Guarda las preferencias en el terminal movil
+     * @user los datos del user logeado
+     */
+    private fun guardarPreferencias(user: FirebaseUser?) {
+        val preferencias:  SharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE) //Nombre del archivo de preferencias
+        val email = user?.email.toString() //Obtengo el mail del usuario
+        val editor: SharedPreferences.Editor = preferencias.edit() //Creo el editor
+        editor.putString("email",email) //Almaceno el mail en el campo email
+        editor.commit() //y almaceno
     }
 
     /**

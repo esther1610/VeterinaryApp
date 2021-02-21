@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
 import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Diagnostico
 import cat.copernic.veterinaryapp.databinding.FragmentVetGenerardiagBinding
+import cat.copernic.veterinaryapp.modelos.Diagnostico
 
 /**
  * Fragmento generar diagnostico

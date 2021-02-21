@@ -1,6 +1,6 @@
 package cat.copernic.veterinaryapp.dataBase
 
-import cat.copernic.veterinaryapp.Mascota
+import cat.copernic.veterinaryapp.modelos.Mascota
 import com.google.firebase.firestore.FirebaseFirestore
 
 class OperaciondBDfirebase_mascota: OperacionsBDMascota {

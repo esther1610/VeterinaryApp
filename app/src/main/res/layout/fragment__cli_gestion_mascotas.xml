@@ -6,7 +6,7 @@
     <data>
         <variable
             name="mascota"
-            type="cat.copernic.veterinaryapp.Mascota" />
+            type="cat.copernic.veterinaryapp.modelos.Mascota" />
 
     </data>
 

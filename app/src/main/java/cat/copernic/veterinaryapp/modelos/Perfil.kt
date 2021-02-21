@@ -1,10 +1,10 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.modelos
 
 import android.media.Image
 import java.util.*
 
 /**
- * data Class Kotlin del tipo cat.copernic.veterinaryapp.Perfil para almacenar los datos de perfil de usuarios de la aplicación
+ * data Class Kotlin del tipo cat.copernic.veterinaryapp.modelos.Perfil para almacenar los datos de perfil de usuarios de la aplicación
  * @nombre, Nombre del perfil
  * @apellidos, Apellidos del Perfil
  * @telefono, Telefono del perfil
