@@ -16,6 +16,8 @@
     <!-- Menu Administrador -->
     <string name="cerrar">Tancar sesió</string>
     <string name="crear_faq">Crea FAQ</string>
+    <string name="MeuPerf">El meu perfil</string>
+    <string name="nouPerfil">Crear nou perfil</string>
 
     <!-- Navegacion del administrador -->
     <string name="nombre_home_admin">Usuaris</string>

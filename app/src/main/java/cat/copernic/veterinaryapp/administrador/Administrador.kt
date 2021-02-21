@@ -48,15 +48,4 @@ class Administrador : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             else -> false
         }
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.cierreSesion -> {
-                val toInit = Intent(this, MainActivity::class.java)
-                startActivity(toInit)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

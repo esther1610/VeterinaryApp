@@ -3,18 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/registreActivity"
-        android:title="@string/button_createAcc" />
+        android:id="@+id/crear_perfil"
+        android:title="@string/nouPerfil" />
     <item
         android:id="@+id/crea_pregunta"
-        android:title="Crea FAQ" />
+        android:title="@string/crear_faq" />
     <item
         android:id="@+id/viewUser"
-        android:title="Ver Pefil" />
+        android:title="@string/MeuPerf" />
     <item
         android:id="@+id/cierreSesion"
         android:title="@string/cerrar" />
-    <item
-        android:id="@+id/crear_perfil"
-        android:title="Crear nuevo perfil" />
 </menu>
