@@ -7,7 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class OperacionsBDfirebase_Faqs : OperacionsDBFAQS {
 
     private val db = FirebaseFirestore.getInstance()
-    
+
     override fun guardar(faqs: FAQS): Boolean {
         db.collection("FAQS").document(faqs.pregunta).set(
             hashMapOf(
@@ -36,4 +36,3 @@ class OperacionsBDfirebase_Faqs : OperacionsDBFAQS {
 
 
 
-}
