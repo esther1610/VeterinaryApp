@@ -7,11 +7,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.veterinaryapp.R
 
-class LlistaUsersAdapter(var elements : MutableList<UserView>, private val clickListener: OnUserClic) :
+class LlistaUsersAdapter(private val clickListener: OnUserClic) :
     RecyclerView.Adapter<LlistaUsersAdapter.LlistUserViewHolder>() {
 
+    private var dataList = mutableListOf<UserView>()
+
+    fun setListData(data : MutableList<UserView>){
+        dataList = data
+    }
+
     interface OnUserClic{
-        fun onUserClickAction(nombre: String)
+        fun onUserClickAction(usuari : UserView)
     }
 
     inner class LlistUserViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -23,7 +29,7 @@ class LlistaUsersAdapter(var elements : MutableList<UserView>, private val click
             nomUser.text = element.nombre
             rolUser.text = element.rol
 
-            itemView.setOnClickListener { clickListener.onUserClickAction(element.nombre) }
+            itemView.setOnClickListener { clickListener.onUserClickAction(element) }
         }
     }
 
@@ -33,10 +39,11 @@ class LlistaUsersAdapter(var elements : MutableList<UserView>, private val click
     }
 
     override fun onBindViewHolder(holder: LlistUserViewHolder, position: Int) {
-        holder.bindView(elements[position])
+        val user = dataList[position]
+        holder.bindView(user)
     }
 
     override fun getItemCount(): Int {
-        return elements.size
+        return dataList.size
     }
 }

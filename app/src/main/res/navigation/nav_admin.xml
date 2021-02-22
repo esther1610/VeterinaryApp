@@ -11,8 +11,11 @@
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_home_f_to_viewUser"
-            app:destination="@id/viewUser" />
+            android:id="@+id/action_home_f_to_edit_perfil2"
+            app:destination="@id/edit_perfil" />
+        <action
+            android:id="@+id/action_home_f_to_crear_perfil"
+            app:destination="@id/crear_perfil" />
     </fragment>
     <fragment
         android:id="@+id/change"
@@ -24,18 +27,6 @@
         android:name="cat.copernic.veterinaryapp.administrador.crea_pregunta"
         android:label="Crear pregunta"
         tools:layout="@layout/fragment_crea_pregunta" />
-    <fragment
-        android:id="@+id/edit_perfil"
-        android:name="cat.copernic.veterinaryapp.edit_perfil"
-        android:label="Editar pefil"
-        tools:layout="@layout/fragment_edit_perfil" >
-        <action
-            android:id="@+id/action_edit_perfil_to_change"
-            app:destination="@id/change" />
-        <action
-            android:id="@+id/action_edit_perfil_to_home_f"
-            app:destination="@id/home_f" />
-    </fragment>
     <fragment
         android:id="@+id/viewUser"
         android:name="cat.copernic.veterinaryapp.ViewUser"
@@ -50,4 +41,16 @@
         android:name="cat.copernic.veterinaryapp.administrador.crear_perfil"
         android:label="fragment_crear_perfil"
         tools:layout="@layout/fragment_crear_perfil" />
+    <fragment
+        android:id="@+id/edit_perfil"
+        android:name="cat.copernic.veterinaryapp.administrador.edit_perfil"
+        android:label="fragment_edit_perfil"
+        tools:layout="@layout/fragment_edit_perfil" >
+        <argument
+            android:name="usuarioClave"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_edit_perfil_to_change"
+            app:destination="@id/change" />
+    </fragment>
 </navigation>

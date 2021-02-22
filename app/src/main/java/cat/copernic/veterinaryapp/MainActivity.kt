@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthMultiFactorException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -41,9 +42,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // la variable currentUser tindrà l'usuari actual si està loginat, sinò serà null.
         val currentUser = auth.currentUser
         if (currentUser!=null){
-            // obrim l'activity admin
-            val toHome = Intent(this, Administrador::class.java)
-            startActivity(toHome)
+            FirebaseFirestore.getInstance().collection("Perfil")
+                .document(currentUser.email.toString()).get().addOnSuccessListener {
+                    val rol = it.get("rol") as String
+                    if (rol == "Administrador"){
+                        val toHome = Intent(this, Administrador::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Veterinari"){
+                        val toHome = Intent(this, ActivityVeterinari::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Client"){
+                        val toHome = Intent(this, ActivityCliente::class.java)
+                        startActivity(toHome)
+                    }
+                }
         }
     }
 
@@ -84,8 +96,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
             //mensajeEmergente("Missatge", "Login correcte.")
 
-            val toHome = Intent(this, Administrador::class.java)
-            startActivity(toHome)
+            FirebaseFirestore.getInstance().collection("Perfil")
+                .document(user.email.toString()).get().addOnSuccessListener {
+                    val rol = it.get("rol") as String
+                    if (rol == "Administrador"){
+                        val toHome = Intent(this, Administrador::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Veterinari"){
+                        val toHome = Intent(this, ActivityVeterinari::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Client"){
+                        val toHome = Intent(this, ActivityCliente::class.java)
+                        startActivity(toHome)
+                    }
+                }
+                /*val toHome = Intent(this, Administrador::class.java)
+            startActivity(toHome)*/
         } else {
             //El usuario esta vació, mensaje
             //Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()

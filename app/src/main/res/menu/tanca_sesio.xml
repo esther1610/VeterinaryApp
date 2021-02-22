@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/Tanca_la_sesio"
+        android:icon="@drawable/ic_logout"
         android:title="@string/cerrar"
         app:showAsAction="always" />
 </menu>

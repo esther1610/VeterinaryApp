@@ -23,7 +23,6 @@ class crear_perfil : Fragment() {
     private lateinit var binding: FragmentCrearPerfilBinding
     private lateinit var mAuth: FirebaseAuth
     val formFecha1: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
-    var fecha: Date? = null
     lateinit var perfil : Perfil
     val db = FirebaseFirestore.getInstance()
 
@@ -55,7 +54,7 @@ class crear_perfil : Fragment() {
             }else{
                 mensage = "Nombre incorrecto\n"
             }
-            if ((binding.regFecha.text.toString().length < 10 || binding.regFecha.text.toString().length > 10)){
+            if ((comprobar.validaFecha(binding.regFecha.text.toString()))){
                 perfil.fecha_nac = binding.regFecha.text.toString()
                 Log.d(nounu, "Fecha correcta")
             }else
