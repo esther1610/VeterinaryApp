@@ -1,4 +1,6 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.dataBase
+
+import cat.copernic.veterinaryapp.modelos.Mascota
 
 interface OperacionsBDMascota {
 

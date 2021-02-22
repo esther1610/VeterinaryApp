@@ -67,6 +67,7 @@
     <!-- Editar usuario (con merpisos de administrador) -->
     <string name="correo_elec">Correu electronic</string>
     <string name="clave_perfil">Contrasenya</string>
+    <string name="crearMascota">Crear mascota</string>
 
     <!-- Array para el Spinner de roles -->
     <string-array name="rols">

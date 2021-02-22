@@ -17,7 +17,11 @@ import java.util.*
 
 
 class ViewUser : Fragment() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+
+    }
     lateinit var perfil : Perfil
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(

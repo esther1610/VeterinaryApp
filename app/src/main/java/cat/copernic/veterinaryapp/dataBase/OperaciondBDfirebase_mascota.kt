@@ -1,8 +1,9 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.dataBase
 
+import cat.copernic.veterinaryapp.modelos.Mascota
 import com.google.firebase.firestore.FirebaseFirestore
 
-class OperaciondBDfirebase_mascota:OperacionsBDMascota {
+class OperaciondBDfirebase_mascota: OperacionsBDMascota {
 
     private val db = FirebaseFirestore.getInstance()
     override fun guardar(mascota: Mascota): Boolean {

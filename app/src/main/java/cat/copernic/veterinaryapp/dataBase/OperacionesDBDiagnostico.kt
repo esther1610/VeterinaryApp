@@ -1,4 +1,6 @@
-package cat.copernic.veterinaryapp
+package cat.copernic.veterinaryapp.dataBase
+
+import cat.copernic.veterinaryapp.modelos.Diagnostico
 
 interface OperacionesDBDiagnostico{
     fun guardar(diagnostico: Diagnostico): Boolean //Le enviamos un diagnostico para guardar

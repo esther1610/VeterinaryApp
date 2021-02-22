@@ -6,7 +6,7 @@
     <data>
         <variable
             name="mascota"
-            type="cat.copernic.veterinaryapp.Mascota" />
+            type="cat.copernic.veterinaryapp.modelos.Mascota" />
 
     </data>
 
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="44dp"
             android:ems="10"
             android:hint="Número chip"
             android:inputType="number"
@@ -77,8 +77,8 @@
             android:id="@+id/editTextPeso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="60dp"
             android:ems="10"
             android:hint="Pes"
             android:inputType="numberDecimal"

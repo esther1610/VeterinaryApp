@@ -7,9 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import cat.copernic.veterinaryapp.dataBase.OperaciondBDfirebase_mascota
 import cat.copernic.veterinaryapp.databinding.FragmentCliGestionMascotasBinding
+import cat.copernic.veterinaryapp.modelos.Mascota
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 

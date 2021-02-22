@@ -8,7 +8,7 @@
     <data>
         <variable
             name="diagnostico"
-            type="cat.copernic.veterinaryapp.Diagnostico" />
+            type="cat.copernic.veterinaryapp.modelos.Diagnostico" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
