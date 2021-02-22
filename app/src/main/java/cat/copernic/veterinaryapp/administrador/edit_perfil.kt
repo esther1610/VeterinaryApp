@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.navigation.fragment.navArgs
 import cat.copernic.veterinaryapp.Comprobaciones
 import cat.copernic.veterinaryapp.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.modelos.Perfil
-import cat.copernic.veterinaryapp.R
 import cat.copernic.veterinaryapp.databinding.FragmentEditPerfilBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
