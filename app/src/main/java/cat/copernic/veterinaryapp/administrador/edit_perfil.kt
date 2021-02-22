@@ -14,7 +14,7 @@ import cat.copernic.veterinaryapp.databinding.FragmentEditPerfilBinding
 import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Edit_perfil : Fragment() {
+class edit_perfil : Fragment() {
 
     val args : edit_perfilArgs by navArgs()
     private val db = FirebaseFirestore.getInstance()

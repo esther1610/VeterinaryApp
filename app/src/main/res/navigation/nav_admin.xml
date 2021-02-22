@@ -49,8 +49,5 @@
         <argument
             android:name="usuarioClave"
             app:argType="string" />
-        <action
-            android:id="@+id/action_edit_perfil_to_change"
-            app:destination="@id/change" />
     </fragment>
 </navigation>
