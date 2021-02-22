@@ -15,7 +15,7 @@ import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Editar_perfil : Fragment() {
-    /*val args : edit_perfilArgs by navArgs()
+    val args : edit_perfilArgs by navArgs()
     private val db = FirebaseFirestore.getInstance()
     private lateinit var binding: FragmentEditPerfilBinding
     lateinit var perfil : Perfil
@@ -133,5 +133,5 @@ class Editar_perfil : Fragment() {
         }
         val dialog: AlertDialog = builder.create()
         dialog.show()
-    }*/
+    }
 }
