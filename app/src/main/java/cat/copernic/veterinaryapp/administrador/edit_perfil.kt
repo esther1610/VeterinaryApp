@@ -135,4 +135,5 @@ class edit_perfil : Fragment() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
 }
