@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import cat.copernic.veterinaryapp.Comprobaciones
 import cat.copernic.veterinaryapp.OperacionesDBFirebase_Perfil
-import cat.copernic.veterinaryapp.modelos.Perfil
 import cat.copernic.veterinaryapp.databinding.FragmentEditPerfilBinding
+import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
 
 class edit_perfil : Fragment() {
