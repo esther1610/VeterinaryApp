@@ -2,6 +2,7 @@ package cat.copernic.veterinaryapp
 
 import OperacionesDBPerfil
 import com.google.firebase.firestore.FirebaseFirestore
+import cat.copernic.veterinaryapp.modelos.Perfil
 
 /**
  * Aqui esta el codigo para añadir a la db Firebase los perfiles
@@ -62,7 +63,7 @@ class OperacionesDBFirebase_Perfil: OperacionesDBPerfil {
         TODO("Modificar seria lo mismo que guardar pasando el Perfil de la db, El correo user en clase Perfil")
     }
 
-    override fun buscar(perfil: Perfil): Boolean {
+    override fun buscar(perfil: Perfil): Perfil {
         TODO("Not yet implemented")
     }
 

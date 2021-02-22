@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import cat.copernic.veterinaryapp.Comprobaciones
 import cat.copernic.veterinaryapp.OperacionesDBFirebase_Perfil
-import cat.copernic.veterinaryapp.Perfil
 import cat.copernic.veterinaryapp.databinding.FragmentCrearPerfilBinding
+import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat

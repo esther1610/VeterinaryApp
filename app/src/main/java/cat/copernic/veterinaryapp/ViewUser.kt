@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
-import cat.copernic.veterinaryapp.Perfil
+import cat.copernic.veterinaryapp.modelos.Perfil
 import java.time.LocalDateTime
 import java.util.*
 

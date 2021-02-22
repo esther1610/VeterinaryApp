@@ -15,6 +15,22 @@ import java.lang.Exception
 
 class OperacionesDBFirebase_Perfil : OperacionesDBPerfil {
     private val db = FirebaseFirestore.getInstance()
+    override fun crear(perfil: Perfil): Boolean {
+        db.collection("Perfil").document(perfil.usuario.toString()).set(
+            hashMapOf(
+                "rol" to perfil.rol.toString(),
+                "apellidos" to perfil.apellidos.toString(),
+                "direccion" to perfil.direccion.toString(),
+                "dni" to perfil.dni.toString(),
+                "fecha_nacimiento" to perfil.fecha_nac.toString(),
+                "nombre" to perfil.nombre.toString(),
+                "telefono" to perfil.telefono.toString(),
+                "usuario" to perfil.usuario.toString(),
+                "rol" to perfil.rol.toString()
+            )
+        )
+        return true
+    }
 
 
     //Guarda en la base de datos en la tabla Perfil
@@ -34,7 +50,6 @@ class OperacionesDBFirebase_Perfil : OperacionesDBPerfil {
                 "nombre" to perfil.nombre.toString(),
                 "telefono" to perfil.telefono.toString(),
                 "usuario" to perfil.usuario.toString(),
-                "rol" to perfil.rol.toString()
             )
         )
         return true //De momento meramente decorativo, pero lo pide la interfaz, por si hay que capturar exceptions.

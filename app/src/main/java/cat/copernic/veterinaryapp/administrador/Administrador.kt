@@ -35,4 +35,21 @@ class Administrador : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.tanca_sesio, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.Tanca_la_sesio -> {
+                Firebase.auth.signOut()
+                val toInit = Intent(this, MainActivity::class.java)
+                startActivity(toInit)
+                true
+            }
+            else -> false
+        }
+    }
 }
