@@ -41,14 +41,19 @@ class ViewFaqs : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var binding= DataBindingUtil.inflate<FragmentCreaPreguntaBinding>(layoutInflater, R.layout.fragment_crea_pregunta, container, false)
+        var binding = DataBindingUtil.inflate<FragmentCreaPreguntaBinding>(
+            layoutInflater,
+            R.layout.fragment_crea_pregunta,
+            container,
+            false
+        )
         // Inflate the layout for this fragment
         faqs = FAQS()
 
-        binding.faqs=faqs
+         binding.faqs=faqs
         binding.butonGuardarBtnnn.setOnClickListener(){
 
-            if(binding.pregunta .equals("")||binding.resposta.equals("")){
+            if(binding.pregunta .equals("")||binding.resposta .equals("")){
                 //validacion()
 
                 if (binding.pregunta.equals("")) {
@@ -71,7 +76,6 @@ class ViewFaqs : Fragment() {
 
         }
         return binding.root
-
+    }
 
     }
-}

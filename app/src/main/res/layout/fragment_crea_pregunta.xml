@@ -6,7 +6,7 @@
     <data>
         <variable
             name="faqs"
-            type="cat.copernic.veterinaryapp.administrador.crea_pregunta" />
+            type="cat.copernic.veterinaryapp.administrador.Crea_pregunta" />
 
     </data>
 
