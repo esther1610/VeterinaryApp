@@ -39,12 +39,6 @@ class Editar_perfil : Fragment() {
     }
 
     fun genUI(email: String) {
-        if (email == "Administrador")
-            binding.editRoles.setSelection(2)
-        else if (email == "Veterinari")
-            binding.editRoles.setSelection(1)
-        else if(email == "Client")
-            binding.editRoles.setSelection(0)
 
         db.collection("Perfil").document(email).get().addOnSuccessListener {
             val rol = it.get("rol") as String

@@ -74,9 +74,9 @@ class crear_perfil : Fragment() {
             } else
                 mensage = "Correo incorrecto\n"
 
-            perfil.dni = binding.regDni.text.toString() //El dni tampoco lo deberia modificar el usuario, unicamente recuperar la info
+            perfil.dni = binding.regDni.text.toString()
 
-            if (comprobar.contieneTexto(binding.regDir.text.toString())){ //Comprueba que tiene texto
+            if (comprobar.contieneTexto(binding.regDir.text.toString())){
                 perfil.direccion = binding.regDir.text.toString()
                 Log.d(nounu, "DNI Bien")
             } else

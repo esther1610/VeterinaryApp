@@ -39,10 +39,6 @@ class home : Fragment(), LlistaUsersAdapter.OnUserClic {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val genListUser: MutableList<UserView> = mutableListOf()
-        genListUser.add(UserView("Emilio", "emilio@emilio.com", "Regulador"))
-        genListUser.add(UserView("Hola", "emilio@emilio.com", "Hmmm"))
-
         adapter = LlistaUsersAdapter(this)
         binding.LlistaUsuarisView.layoutManager = LinearLayoutManager(context)
         binding.LlistaUsuarisView.adapter = adapter

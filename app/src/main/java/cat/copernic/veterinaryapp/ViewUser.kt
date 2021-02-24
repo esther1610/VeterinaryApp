@@ -1,6 +1,5 @@
 package cat.copernic.veterinaryapp
 
-import android.content.BroadcastReceiver
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +11,6 @@ import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
 import cat.copernic.veterinaryapp.modelos.Perfil
-import java.time.LocalDateTime
 import java.util.*
 
 
