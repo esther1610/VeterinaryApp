@@ -1,23 +1,30 @@
 package cat.copernic.veterinaryapp.administrador
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.ListFragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import cat.copernic.veterinaryapp.MainActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.veterinaryapp.R
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.LlistaUsersAdapter
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.UserView
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.UsersViewModel
 import cat.copernic.veterinaryapp.databinding.FragmentHomeBinding
-import com.google.android.material.navigation.NavigationView
+import cat.copernic.veterinaryapp.databinding.ViewUsersBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.util.EnumSet.of
 
-class home : Fragment(), NavigationView.OnNavigationItemSelectedListener {
+class home : Fragment(), LlistaUsersAdapter.OnUserClic {
 
+    private lateinit var adapter: LlistaUsersAdapter
     private lateinit var binding: FragmentHomeBinding
+    private val viewModel by lazy { ViewModelProviders.of(this).get(UsersViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,16 +32,36 @@ class home : Fragment(), NavigationView.OnNavigationItemSelectedListener {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+
         return view
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.cierreSesion -> {
-                Firebase.auth.signOut()
-                true
-            }
-            else -> false
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val genListUser: MutableList<UserView> = mutableListOf()
+        genListUser.add(UserView("Emilio", "emilio@emilio.com", "Regulador"))
+        genListUser.add(UserView("Hola", "emilio@emilio.com", "Hmmm"))
+
+        adapter = LlistaUsersAdapter(this)
+        binding.LlistaUsuarisView.layoutManager = LinearLayoutManager(context)
+        binding.LlistaUsuarisView.adapter = adapter
+        observeData()
+
+        binding.floatingActionButton2.setOnClickListener {
+            findNavController().navigate(R.id.action_home_f_to_crear_perfil)
         }
+    }
+
+    override fun onUserClickAction(usuari : UserView) {
+        val arg = homeDirections.actionHomeFToEditPerfil2(usuari.usuario)
+        findNavController().navigate(arg)
+    }
+
+    fun observeData(){
+        viewModel.fetchUsersData().observe(viewLifecycleOwner, Observer {
+            adapter.setListData(it)
+            adapter.notifyDataSetChanged()
+        })
     }
 }

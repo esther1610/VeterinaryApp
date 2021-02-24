@@ -3,8 +3,8 @@ package cat.copernic.veterinaryapp.administrador
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -12,11 +12,10 @@ import androidx.navigation.ui.NavigationUI
 import cat.copernic.veterinaryapp.MainActivity
 import cat.copernic.veterinaryapp.R
 import cat.copernic.veterinaryapp.databinding.ActivityAdministradorBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class Administrador : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Administrador : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +36,14 @@ class Administrador : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.tanca_sesio, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.cierreSesion -> {
+            R.id.Tanca_la_sesio -> {
                 Firebase.auth.signOut()
                 val toInit = Intent(this, MainActivity::class.java)
                 startActivity(toInit)
@@ -49,14 +53,4 @@ class Administrador : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.cierreSesion -> {
-                val toInit = Intent(this, MainActivity::class.java)
-                startActivity(toInit)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 }

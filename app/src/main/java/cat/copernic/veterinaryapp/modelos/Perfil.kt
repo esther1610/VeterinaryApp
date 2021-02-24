@@ -20,7 +20,7 @@ data class Perfil(
     var nombre: String = "",
     var apellidos: String = "",
     var telefono: String = "",
-    var fecha_nac: Date? = null,
+    var fecha_nac: String = "",
     var usuario: String = "",
     var dni: String = "",
     var rol: String = "cliente", //default, el rango mas bajo

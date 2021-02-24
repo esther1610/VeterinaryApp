@@ -1,8 +1,6 @@
 package cat.copernic.veterinaryapp
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,18 +8,17 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import cat.copernic.veterinaryapp.administrador.Administrador
-import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthMultiFactorException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +42,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // la variable currentUser tindrà l'usuari actual si està loginat, sinò serà null.
         val currentUser = auth.currentUser
         if (currentUser!=null){
-            // obrim l'activity admin
-            val toHome = Intent(this, ActivityCliente::class.java)
-            startActivity(toHome)
+            FirebaseFirestore.getInstance().collection("Perfil")
+                .document(currentUser.email.toString()).get().addOnSuccessListener {
+                    val rol = it.get("rol") as String
+                    if (rol == "Administrador"){
+                        val toHome = Intent(this, Administrador::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Veterinari"){
+                        val toHome = Intent(this, ActivityVeterinari::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Client"){
+                        val toHome = Intent(this, ActivityCliente::class.java)
+                        startActivity(toHome)
+                    }
+                }
         }
     }
 
@@ -88,8 +96,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //Toast.makeText(this, "Se ha logueado con exito -> Siguiente activity", Toast.LENGTH_LONG).show()
             //mensajeEmergente("Missatge", "Login correcte.")
 
-            val toHome = Intent(this, ActivityCliente::class.java)
-            startActivity(toHome)
+            FirebaseFirestore.getInstance().collection("Perfil")
+                .document(user.email.toString()).get().addOnSuccessListener {
+                    val rol = it.get("rol") as String
+                    if (rol == "Administrador"){
+                        val toHome = Intent(this, Administrador::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Veterinari"){
+                        val toHome = Intent(this, ActivityVeterinari::class.java)
+                        startActivity(toHome)
+                    }else if (rol == "Client"){
+                        val toHome = Intent(this, ActivityCliente::class.java)
+                        startActivity(toHome)
+                    }
+                }
+                /*val toHome = Intent(this, Administrador::class.java)
+            startActivity(toHome)*/
         } else {
             //El usuario esta vació, mensaje
             //Toast.makeText(this, "no se ha logueado", Toast.LENGTH_LONG).show()
@@ -110,8 +132,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         Log.d(TAG, "signInWithEmail:success")
                         val user = auth.currentUser
                         seHaLogueado(user)
-
-                        guardarPreferencias(user)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, task.exception.toString(), task.exception)
@@ -131,18 +151,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     // [END_EXCLUDE]
                 }
-    }
-
-    /**
-     * Guarda las preferencias en el terminal movil
-     * @user los datos del user logeado
-     */
-    private fun guardarPreferencias(user: FirebaseUser?) {
-        val preferencias:  SharedPreferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE) //Nombre del archivo de preferencias
-        val email = user?.email.toString() //Obtengo el mail del usuario
-        val editor: SharedPreferences.Editor = preferencias.edit() //Creo el editor
-        editor.putString("email",email) //Almaceno el mail en el campo email
-        editor.commit() //y almaceno
     }
 
     /**

@@ -4,6 +4,7 @@ import java.util.regex.Pattern
 
 class Comprobaciones {
 
+
         /**
         En esta clase podemos añadir varias comprobaciones
          * por ejemplo que una cadena contenga algo
@@ -34,8 +35,13 @@ class Comprobaciones {
             return key.length >= 8
         }
 
+    fun validaCorreo(correo: String): Boolean {
+        val pattern: Pattern = Pattern.compile("^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+.[A-Za-z0-9]+")
+        return pattern.matcher(correo).matches()
+    }
+
         fun validaFecha(fecha: String): Boolean {
-            val pattern: Pattern = Pattern.compile("[1-3][0-9]?\\/[0-1][0-9]?\\/[0-9]{4}")
+            val pattern: Pattern = Pattern.compile("[0-3][0-9]?\\/[0-1]?[0-9]?\\/[0-9]{4}")
             return pattern.matcher(fecha).matches()
         }
 
