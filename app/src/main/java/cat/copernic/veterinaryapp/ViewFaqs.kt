@@ -34,7 +34,8 @@ class ViewFaqs : Fragment() {
 
     }
 
-    lateinit var faqs : FAQS
+    lateinit  var faqs : FAQS
+    
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
