@@ -23,11 +23,6 @@
         android:label="Editar mi perfil"
         tools:layout="@layout/fragment_change" />
     <fragment
-        android:id="@+id/crea_pregunta"
-        android:name="cat.copernic.veterinaryapp.administrador.crea_pregunta"
-        android:label="Crear pregunta"
-        tools:layout="@layout/fragment_crea_pregunta" />
-    <fragment
         android:id="@+id/viewUser"
         android:name="cat.copernic.veterinaryapp.ViewUser"
         android:label="Ver Usuario"
@@ -50,4 +45,8 @@
             android:name="usuarioClave"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/crearLesFaqs2"
+        android:name="cat.copernic.veterinaryapp.CrearLesFaqs"
+        android:label="CrearLesFaqs" />
 </navigation>

@@ -6,7 +6,7 @@
         android:id="@+id/crear_perfil"
         android:title="@string/nouPerfil" />
     <item
-        android:id="@+id/crea_pregunta"
+        android:id="@+id/FAQScrea"
         android:title="@string/crear_faq" />
     <item
         android:id="@+id/viewUser"

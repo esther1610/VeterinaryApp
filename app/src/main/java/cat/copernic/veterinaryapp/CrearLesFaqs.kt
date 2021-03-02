@@ -1,31 +1,21 @@
 package cat.copernic.veterinaryapp
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import cat.copernic.veterinaryapp.dataBase.OperaciondBDfirebase_mascota
-import cat.copernic.veterinaryapp.dataBase.OperacionesDBFirebase_Perfil
 import cat.copernic.veterinaryapp.dataBase.OperacionsBDfirebase_Faqs
-import cat.copernic.veterinaryapp.databinding.FragmentCliGestionMascotasBinding
-import cat.copernic.veterinaryapp.databinding.FragmentCreaPreguntaBinding
-import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
+import cat.copernic.veterinaryapp.databinding.FragmentCrearLesFaqsBinding
 import cat.copernic.veterinaryapp.modelos.FAQS
-import cat.copernic.veterinaryapp.modelos.Mascota
-import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class ViewFaqs : Fragment() {
 
+class CrearLesFaqs : Fragment() {
     var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
 
@@ -35,14 +25,14 @@ class ViewFaqs : Fragment() {
     }
 
     lateinit  var faqs : FAQS
-    
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        var binding = DataBindingUtil.inflate<FragmentCreaPreguntaBinding>(
+        var binding = DataBindingUtil.inflate<FragmentCrearLesFaqsBinding>(
             layoutInflater,
             R.layout.fragment_crea_pregunta,
             container,
@@ -51,7 +41,7 @@ class ViewFaqs : Fragment() {
         // Inflate the layout for this fragment
         faqs = FAQS()
 
-         binding.faqs=faqs
+        binding.faqs=faqs
         binding.butonGuardarBtnnn.setOnClickListener(){
 
             if(binding.pregunta .equals("")||binding.resposta .equals("")){
@@ -79,4 +69,5 @@ class ViewFaqs : Fragment() {
         return binding.root
     }
 
-    }
+
+}
