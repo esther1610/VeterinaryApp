@@ -63,7 +63,7 @@ class Fragment_CliGestionMascotas : Fragment() {
 
             } else {
                 mascota.nom=binding.txtNombreMascota.text.toString()
-                mascota.rassa=binding.txtRazaMascota.toString()
+                mascota.rassa=binding.txtRazaMascota.text.toString()
                 mascota.dataNaixement=binding.txtNacimientoMascota.text.toString()
                 mascota.numCgip=binding.editChipNumber.text.toString()
                 mascota.pes=binding.editTextPeso.text.toString()
