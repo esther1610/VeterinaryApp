@@ -1,7 +1,11 @@
 package cat.copernic.veterinaryapp
 
+
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,58 +15,72 @@ import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
 import cat.copernic.veterinaryapp.modelos.Perfil
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 
 class ViewUser : Fragment() {
+    private lateinit var binding: FragmentViewUserBinding
+    private val db = FirebaseFirestore.getInstance()
+    lateinit var perfil : Perfil
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
     }
-    lateinit var perfil : Perfil
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        var binding = DataBindingUtil.inflate<FragmentViewUserBinding>(layoutInflater, R.layout.fragment_view_user, container, false)
-        //Aqui se tinenque recuperar los datos y asignarlos a perfil para que se muestren en pantalla
-        perfil = Perfil("Jose","Colacios")
-        binding.perfil = perfil //Paso el perfil a la vista del fragment
-
-        binding.buttonSave.setOnClickListener {
-            var comprobar = Comprobaciones() //Inicializo la clase de comprobaciones
-
-            //Pasar el contenido de los text a el data class
-            if (comprobar.contieneTexto(binding.EditTextNom.text.toString()))//Comprueba que tiene texto
-                perfil.nombre = binding.EditTextNom.text.toString()
-
-            //perfil.fecha_nac = binding.EditTextDataN.text.toString() //Hay que pasarlo a fecha
-            perfil.usuario = binding.EditTextUsuari.text.toString() //Hay que recuperar el mail de user actual, con sharedPreferences y el campo dejarlo en bloqueado para la no edición
-            //perfil.rol el user no puede editar el rol
-            perfil.dni = binding.EditTextDni.text.toString() //El dni tampoco lo deberia modificar el usuario, unicamente recuperar la info
-            if (comprobar.contieneTexto(binding.EditTextDir.text.toString()))//Comprueba que tiene texto
-                perfil.direccion = binding.EditTextDir.text.toString()
-            if (comprobar.contieneTexto(binding.EditTextCognoms.text.toString()))//Comprueba que tiene texto
-                perfil.apellidos = binding.EditTextCognoms.text.toString()
-            //perfil.foto //clase foto por hacer
-            if (comprobar.validarMovil(binding.EditTextTel.text.toString()))
-                perfil.telefono = binding.EditTextTel.text.toString()
-            else
-                //Mensaje numero no valido, cambiarlo por un mensaje emergente.
-                Toast.makeText(activity, "Número de telefono no valido", Toast.LENGTH_LONG).show()
-
-
-
-            //Añadir los datos a la base de datos
-            val opdiag = OperacionesDBFirebase_Perfil()
-            opdiag.guardar(perfil)
-        }
-
+        binding = FragmentViewUserBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //Recupera los datos del usuario logueado
+        val email = recuperarDatosPreferences().toString()
+        //Envia el mail para recuperar los datos del perfil
+        Log.e("Jose",email.toString())
+        genUI(email)
+
+
+    }
+
+    /**
+     * Recupera los datos de la base de datos y envia a cada campo correspondiente del fragment para mostrar los datos
+     */
+    fun genUI(email: String) {
+        db.collection("Perfil").document(email).get().addOnSuccessListener {
+            //llenar los campos correspondientes del fragment con los datos recuperados de la db
+            binding.lvlRol.setText(it.get("rol") as String?)
+            binding.EditTextUsuari.setText(it.get("usuario") as String?)
+            binding.EditTextNom.setText(it.get("nombre") as String?)
+            binding.EditTextCognoms.setText(it.get("apellidos") as String?)
+            binding.EditTextDataN.setText(it.get("fecha_nacimiento") as String?)
+            binding.EditTextTel.setText(it.get("telefono") as String?)
+            binding.EditTextDir.setText(it.get("direccion") as String?)
+            binding.EditTextDni.setText(it.get("dni") as String?)
+        }
+    }
+
+    /**
+     * Recuperar los datos del cliente
+     *
+     */
+    fun recuperarDatosPreferences(): String? {
+        val preferencias: SharedPreferences? =
+            this.activity?.getSharedPreferences("credenciales", Context.MODE_PRIVATE)
+        val emailSP: String? = preferencias?.getString("email","Sin datos")
+        return emailSP
+    }
+
+
 
 }
