@@ -41,7 +41,7 @@ class Comprobaciones {
     }
 
     fun validaFecha(fecha: String): Boolean {
-        val pattern: Pattern = Pattern.compile("[0-3][0-9]?\\/[0-1]?[0-9]?\\/[0-9]{4}")
+        val pattern: Pattern = Pattern.compile("[0-3][0-9]?\\/[0-1]?[0-9]\\/[0-9]{4}")
         return pattern.matcher(fecha).matches()
     }
 

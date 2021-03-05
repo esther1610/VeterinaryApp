@@ -46,7 +46,8 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/crearLesFaqs2"
+        android:id="@+id/crearLesFaqs"
         android:name="cat.copernic.veterinaryapp.CrearLesFaqs"
-        android:label="CrearLesFaqs" />
+        android:label="fragment_crear_les_faqs"
+        tools:layout="@layout/fragment_crear_les_faqs" />
 </navigation>

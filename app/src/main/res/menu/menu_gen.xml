@@ -6,12 +6,9 @@
         android:id="@+id/crear_perfil"
         android:title="@string/nouPerfil" />
     <item
-        android:id="@+id/FAQScrea"
-        android:title="@string/crear_faq" />
-    <item
         android:id="@+id/viewUser"
         android:title="@string/MeuPerf" />
     <item
-        android:id="@+id/cierreSesion"
-        android:title="@string/cerrar" />
+        android:id="@+id/crearLesFaqs"
+        android:title="@string/crear_faq" />
 </menu>

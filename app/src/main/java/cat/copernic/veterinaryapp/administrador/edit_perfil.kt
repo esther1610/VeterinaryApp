@@ -82,7 +82,7 @@ class edit_perfil : Fragment() {
         }else{
             mensage = "Nombre incorrecto\n"
         }
-        if ((binding.EditTextDataN.text.toString().length < 10 || binding.EditTextDataN.text.toString().length > 10)){
+        if (comprobar.validaFecha(binding.EditTextDataN.text.toString())){
             perfil.fecha_nac = binding.EditTextDataN.text.toString()
             Log.d(nounu, "Fecha correcta")
         }else

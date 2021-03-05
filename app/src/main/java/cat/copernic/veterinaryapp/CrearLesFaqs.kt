@@ -23,7 +23,7 @@ class CrearLesFaqs : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
-
+    private lateinit var binding: FragmentCrearLesFaqsBinding
     lateinit  var faqs : FAQS
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -32,12 +32,7 @@ class CrearLesFaqs : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var binding = DataBindingUtil.inflate<FragmentCrearLesFaqsBinding>(
-            layoutInflater,
-            R.layout.fragment_crea_pregunta,
-            container,
-            false
-        )
+        binding = FragmentCrearLesFaqsBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         faqs = FAQS()
 

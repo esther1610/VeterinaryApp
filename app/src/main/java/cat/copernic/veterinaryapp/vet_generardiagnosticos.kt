@@ -1,6 +1,7 @@
 package cat.copernic.veterinaryapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +40,6 @@ class vet_generardiagnosticos : Fragment() {
     }
 
     fun createUI(){
-        var fecha : Date? = null
-        var id : String = ""
 
         horas.add("7:00")
         horas.add("7:30")
@@ -62,10 +61,17 @@ class vet_generardiagnosticos : Fragment() {
         val adapador = HoraAdapter(horas)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapador
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var fecha = ""
+        var id : String = ""
         binding.calendarView.setOnDateChangeListener{ calendarView, i, i2, i3 ->
 
             val dd : String = "" + i3 + "/" + (i2 + 1) + "/" + i
-            fecha = this.formFecha1.parse(dd)
+            fecha = dd
             id = "" + i3 + "" + (i2 + 1) + "" + i
         }
 
@@ -74,7 +80,7 @@ class vet_generardiagnosticos : Fragment() {
             if(!(binding.editTextTextPersonName7.equals(""))){
                 db.collection("Visita").document(id + horaSelec).set(
                     hashMapOf(
-                        "Cliente" to binding.editTextTextPersonName7,
+                        "Cliente" to binding.editTextTextPersonName7.text.toString(),
                         "Veterinari" to user!!.email,
                         "Fecha" to fecha,
                         "Hora" to horaSelec

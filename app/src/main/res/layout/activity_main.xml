@@ -7,49 +7,47 @@
     tools:context=".MainActivity">
 
 <EditText
-android:id="@+id/txtEmail"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginTop="204dp"
-android:ems="10"
-android:hint="@string/login_hint_txt"
-android:inputType="textEmailAddress"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.497"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent" />
+    android:id="@+id/txtEmail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/campo_personalizado"
+    android:padding="5dp"
+    android:layout_marginTop="204dp"
+    android:ems="10"
+    android:hint="@string/login_hint_txt"
+    android:inputType="textEmailAddress"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.497"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-<EditText
-android:id="@+id/txtPass"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:ems="10"
-android:hint="@string/pass_hint_txt"
-android:inputType="textPassword"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.497"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+    <EditText
+        android:id="@+id/txtPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/campo_personalizado"
+        android:ems="10"
+        android:hint="@string/pass_hint_txt"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
-<Button
-android:id="@+id/btnLogIn"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginStart="16dp"
-android:layout_marginBottom="16dp"
-android:text="@string/button_login"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintStart_toStartOf="parent" />
-
-<Button
-android:id="@+id/btnRegistro"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginEnd="16dp"
-android:layout_marginBottom="16dp"
-android:text="@string/button_createAcc"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toEndOf="parent" />
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/button_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtPass"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/txtPass"
+        app:layout_constraintTop_toBottomOf="@+id/txtPass"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
