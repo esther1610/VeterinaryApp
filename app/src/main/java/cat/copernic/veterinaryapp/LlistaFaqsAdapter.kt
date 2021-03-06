@@ -33,7 +33,7 @@ class LlistaFaqsAdapter():
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LlistFaqsViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.fragment_ver_f_a_q, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.view_faqs, parent, false)
         return LlistFaqsViewHolder(view)
     }
 
