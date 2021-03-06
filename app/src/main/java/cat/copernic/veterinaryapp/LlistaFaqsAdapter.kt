@@ -1,0 +1,48 @@
+package cat.copernic.veterinaryapp
+
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.LlistaUsersAdapter
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.UserView
+import cat.copernic.veterinaryapp.modelos.FAQS
+import android.view.LayoutInflater
+import cat.copernic.veterinaryapp.R
+
+class LlistaFaqsAdapter():
+    RecyclerView.Adapter<LlistaFaqsAdapter.LlistFaqsViewHolder>() {
+
+    private var dataList = mutableListOf<FAQS>()
+
+    fun setListData(data : MutableList<FAQS>){
+        dataList = data
+    }
+
+    inner class LlistFaqsViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+
+        fun bindView(element: FAQS){
+            val preguntaFaqs: TextView = itemView.findViewById(R.id.pregunta)
+            val respostaFaqs: TextView = itemView.findViewById(R.id.resposta)
+
+            preguntaFaqs.text = element.pregunta
+            respostaFaqs.text = element.resposta
+
+
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LlistFaqsViewHolder {
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.fragment_ver_f_a_q, parent, false)
+        return LlistFaqsViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: LlistFaqsViewHolder, position: Int) {
+        val faqs = dataList[position]
+        holder.bindView(faqs)
+    }
+
+    override fun getItemCount(): Int {
+        return dataList.size
+    }
+}
