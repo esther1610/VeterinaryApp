@@ -16,6 +16,7 @@ import cat.copernic.veterinaryapp.databinding.FragmentVerFAQBinding
 
 class FragmentVerFAQ : Fragment() {
 
+
     private lateinit var adapter: LlistaFaqsAdapter
     private lateinit var binding: FragmentVerFAQBinding
     private val viewModel by lazy { ViewModelProviders.of(this).get(FaqsViewModel::class.java) }
@@ -24,8 +25,10 @@ class FragmentVerFAQ : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentVerFAQBinding.inflate(inflater, container, false)
         val view = binding.root
+
 
         return view
     }
