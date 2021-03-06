@@ -1,5 +1,7 @@
 package cat.copernic.veterinaryapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -67,6 +69,7 @@ class Fragment_CliGestionMascotas : Fragment() {
                 mascota.dataNaixement=binding.txtNacimientoMascota.text.toString()
                 mascota.numCgip=binding.editChipNumber.text.toString()
                 mascota.pes=binding.editTextPeso.text.toString()
+                mascota.duenyo = recuperarDatosPreferences().toString()
 
                 binding.txtNombreMascota.setText("")
                 binding.txtRazaMascota.setText("")
@@ -85,6 +88,16 @@ class Fragment_CliGestionMascotas : Fragment() {
 
     }
 
+    /**
+     * Recuperar los datos del cliente
+     *
+     */
+    fun recuperarDatosPreferences(): String? {
+        val preferencias: SharedPreferences? =
+            this.activity?.getSharedPreferences("credenciales", Context.MODE_PRIVATE)
+        val emailSP: String? = preferencias?.getString("email","Sin datos")
+        return emailSP
+    }
 
 
 }

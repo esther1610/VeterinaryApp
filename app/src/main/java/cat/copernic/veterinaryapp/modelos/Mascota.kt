@@ -5,5 +5,6 @@ data class Mascota (
     var rassa: String = "",
     var dataNaixement: String?="",
     var numCgip:String="",
-    var pes:String=""
+    var pes:String="",
+    var duenyo: String= ""
 )
