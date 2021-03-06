@@ -47,9 +47,9 @@ class OperacionesDBFirebase_Perfil: OperacionesDBPerfil {
                 "dni" to perfil.dni.toString(),
                 "fecha_nacimiento" to perfil.fecha_nac.toString(),
                 "nombre" to perfil.nombre.toString(),
+                "rol" to perfil.rol,
                 "telefono" to perfil.telefono.toString(),
                 "usuario" to perfil.usuario.toString()
-
             )
         )
         return true //De momento meramente decorativo, pero lo pide la interfaz, por si hay que capturar exceptions.
