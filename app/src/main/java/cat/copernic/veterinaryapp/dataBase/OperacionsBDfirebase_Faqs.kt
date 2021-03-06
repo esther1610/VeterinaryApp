@@ -12,7 +12,7 @@ class OperacionsBDfirebase_Faqs : OperacionsDBFAQS {
         db.collection("FAQS").document(faqs.pregunta).set(
             hashMapOf(
                 // "id"  to mascota.idMascota.toString() ,
-                "pregunra" to faqs.pregunta,
+                "pregunta" to faqs.pregunta,
                 "resposta" to faqs.resposta,
             )
         )
