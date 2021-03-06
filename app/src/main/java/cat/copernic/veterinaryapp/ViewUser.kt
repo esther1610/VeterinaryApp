@@ -86,7 +86,6 @@ class ViewUser : Fragment() {
         val comprueba: Comprobaciones = Comprobaciones()
         var campoErroneo = false
 
-
         var nombre = binding.EditTextNom.text.toString()
         var direccion = binding.EditTextDir.text.toString()
         var usr = binding.EditTextUsuari.text.toString()
@@ -95,8 +94,6 @@ class ViewUser : Fragment() {
         var dni = binding.EditTextDni.text.toString()
         var fechaN = binding.EditTextDataN.text.toString()
         var telefono = binding.EditTextTel.text.toString()
-
-
 
 
         if(!comprueba.contieneTexto(nombre)){
@@ -126,7 +123,6 @@ class ViewUser : Fragment() {
             perfilMod.telefono = telefono
             perfilMod.rol = suRol
             perfilMod.usuario = usr
-
 
             val opdb: OperacionesDBFirebase_Perfil = OperacionesDBFirebase_Perfil()
             //Guardar las modificaciones

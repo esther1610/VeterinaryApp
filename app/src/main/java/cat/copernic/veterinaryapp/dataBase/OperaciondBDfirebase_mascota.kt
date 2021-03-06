@@ -14,9 +14,8 @@ class OperaciondBDfirebase_mascota: OperacionsBDMascota {
                 "rassa" to mascota.rassa.toString(),
                 "data_naixement" to mascota.dataNaixement.toString(),
                 "numero_chip" to mascota.numCgip.toString(),
-                "pes" to mascota.pes.toString()
-
-
+                "pes" to mascota.pes.toString(),
+                "duenyo" to mascota.duenyo.toString()
             )
         )
         return true
