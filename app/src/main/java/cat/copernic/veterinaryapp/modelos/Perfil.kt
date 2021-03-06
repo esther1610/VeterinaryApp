@@ -23,7 +23,7 @@ data class Perfil(
     var fecha_nac: String = "",
     var usuario: String = "",
     var dni: String = "",
-    var rol: String = "cliente", //default, el rango mas bajo
+    var rol: String = "Client", //default, el rango mas bajo
     var foto: Image? = null,
     var direccion: String = ""
 )

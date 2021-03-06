@@ -1,23 +1,22 @@
 package cat.copernic.veterinaryapp
 
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
 import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 
+val texto: String = "JoseLog"
 
 class ViewUser : Fragment() {
     private lateinit var binding: FragmentViewUserBinding
@@ -50,6 +49,15 @@ class ViewUser : Fragment() {
         Log.e("Jose",email.toString())
         genUI(email)
 
+        binding.buttonSave.setOnClickListener {
+            Log.d(texto, "Click")
+            //al hacer click
+            //Guarda los datos actuales de los label, etc
+            guardaDatos();
+
+
+        }
+
 
     }
 
@@ -71,6 +79,67 @@ class ViewUser : Fragment() {
     }
 
     /**
+     * Guardar datos editados
+     */
+    fun guardaDatos(){
+        var perfilMod: Perfil = Perfil()
+        val comprueba: Comprobaciones = Comprobaciones()
+        var campoErroneo = false
+
+
+        var nombre = binding.EditTextNom.text.toString()
+        var direccion = binding.EditTextDir.text.toString()
+        var usr = binding.EditTextUsuari.text.toString()
+        var suRol = binding.lvlRol.text.toString()
+        var apellido = binding.EditTextCognoms.text.toString()
+        var dni = binding.EditTextDni.text.toString()
+        var fechaN = binding.EditTextDataN.text.toString()
+        var telefono = binding.EditTextTel.text.toString()
+
+
+
+
+        if(!comprueba.contieneTexto(nombre)){
+            campoErroneo = true
+        }else if(!comprueba.contieneTexto(direccion)){
+            campoErroneo = true
+        } else if (!comprueba.contieneTexto(usr)){
+            campoErroneo = true
+        } else if (!comprueba.contieneTexto(suRol)){
+            campoErroneo = true
+        } else if (!comprueba.contieneTexto(apellido)){
+            campoErroneo = true
+        } else if (!comprueba.contieneTexto(dni)){
+            //Por hacer metodo valida dni
+            campoErroneo = true
+        } else if (!comprueba.validaFecha(fechaN)){
+            campoErroneo = true
+        } else if (!comprueba.validarMovil(telefono)){
+            campoErroneo = true
+        }else{
+            //No hay error llenar datos de la clase
+            perfilMod.apellidos = apellido
+            perfilMod.direccion = direccion
+            perfilMod.dni = dni
+            perfilMod.fecha_nac = fechaN
+            perfilMod.nombre = nombre
+            perfilMod.telefono = telefono
+            perfilMod.rol = suRol
+            perfilMod.usuario = usr
+
+
+            val opdb: OperacionesDBFirebase_Perfil = OperacionesDBFirebase_Perfil()
+            //Guardar las modificaciones
+            opdb.guardar(perfilMod)
+        }
+        //Si hay algun campo erroneo
+        if (campoErroneo){
+            missatgeEmergent("Error","Omple tots els camps correctament")
+            campoErroneo = false //No es necesario, pero por si acaso
+        }
+
+    }
+    /**
      * Recuperar los datos del cliente
      *
      */
@@ -81,6 +150,19 @@ class ViewUser : Fragment() {
         return emailSP
     }
 
+    /**
+     * Mensaje emergente
+     * Pasar titulo y mensaje a mostrar
+     */
+    fun missatgeEmergent(titol: String, missatge: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(titol)
+        builder.setMessage(missatge)
+        builder.setPositiveButton("Aceptar") { dialog, which ->
+        }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 
 
 }
