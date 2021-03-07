@@ -32,7 +32,7 @@ class Comprobaciones {
     }
 
     fun validaClave(key: String): Boolean {
-        return key.length >= 8
+        return key.length >= 6
     }
 
     fun validaCorreo(correo: String): Boolean {

@@ -54,7 +54,7 @@
     <string name="txt_usr_fechaNac">Data de naixement</string>
     <string name="txt_usr_direcc">Adreça</string>
     <string name="btn_chng_pass">Canviar Contrasenya</string>
-    <string name="txtBtn_save">Guardar</string>
+    <string name="txtBtn_save">Desar</string>
     <string name="hintNom">Nom</string>
     <string name="hintUser">User</string>
     <string name="hintCognoms">Cognoms</string>
@@ -64,7 +64,8 @@
     <string name="hintDireccio">Direcció</string>
     <string name="fotoPerf">Fotografia de perfil</string>
 
-    <!-- Editar usuario (con merpisos de administrador) -->
+    <!-- Editar usuario (con perpisos de administrador) -->
+    <string name="editUserView">Modificar perdil</string>
     <string name="correo_elec">Correu electronic</string>
     <string name="clave_perfil">Contrasenya</string>
     <string name="crearMascota">Crear mascota</string>

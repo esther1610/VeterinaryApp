@@ -66,6 +66,7 @@
     <string name="fotoPerf">Fotografia de perfil</string>
 
     <!-- Editar usuari (ambpermisos  d'administrador) -->
+    <string name="editUserView">Modificar perdil</string>
     <string name="correo_elec">Correu electrònic</string>
     <string name="clave_perfil">Contrasenya</string>
     <string name="crearMascota">Crear mascota</string>

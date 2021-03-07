@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import cat.copernic.veterinaryapp.databinding.FragmentViewUserBinding
 import cat.copernic.veterinaryapp.modelos.Perfil
 import com.google.firebase.firestore.FirebaseFirestore
@@ -53,12 +54,12 @@ class ViewUser : Fragment() {
             Log.d(texto, "Click")
             //al hacer click
             //Guarda los datos actuales de los label, etc
-            guardaDatos();
-
-
+            guardaDatos()
         }
 
-
+        binding.buttonChngPass.setOnClickListener{
+            findNavController().navigate(R.id.action_viewUser_to_change)
+        }
     }
 
     /**

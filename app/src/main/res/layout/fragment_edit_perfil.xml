@@ -37,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/txt_usr_nom"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
             app:layout_constraintTop_toBottomOf="@+id/textView23"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="8dp" />
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView19"
