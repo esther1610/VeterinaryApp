@@ -12,7 +12,6 @@ import cat.copernic.veterinaryapp.R
 
 class LlistaFaqsAdapter():
     RecyclerView.Adapter<LlistaFaqsAdapter.LlistFaqsViewHolder>() {
-
     private var dataList = mutableListOf<FAQS>()
 
     fun setListData(data : MutableList<FAQS>){
@@ -27,8 +26,6 @@ class LlistaFaqsAdapter():
 
             preguntaFaqs.text = element.pregunta
             respostaFaqs.text = element.resposta
-
-
         }
     }
 
