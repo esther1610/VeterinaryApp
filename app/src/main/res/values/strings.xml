@@ -68,6 +68,8 @@
     <string name="correo_elec">Correu electronic</string>
     <string name="clave_perfil">Contrasenya</string>
     <string name="crearMascota">Crear mascota</string>
+    <string name="animal">Animal</string>
+    <string name="horaris">Horaris disponibles</string>
 
     <!-- Array para el Spinner de roles -->
     <string-array name="rols">

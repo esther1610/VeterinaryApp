@@ -16,7 +16,6 @@ import cat.copernic.veterinaryapp.databinding.FragmentVerFAQBinding
 
 class FragmentVerFAQ : Fragment() {
 
-
     private lateinit var adapter: LlistaFaqsAdapter
     private lateinit var binding: FragmentVerFAQBinding
     private val viewModel by lazy { ViewModelProviders.of(this).get(FaqsViewModel::class.java) }
@@ -28,8 +27,6 @@ class FragmentVerFAQ : Fragment() {
 
         binding = FragmentVerFAQBinding.inflate(inflater, container, false)
         val view = binding.root
-
-
         return view
     }
 
@@ -40,8 +37,6 @@ class FragmentVerFAQ : Fragment() {
         binding.LlistaFaqsView.layoutManager = LinearLayoutManager(context)
         binding.LlistaFaqsView.adapter = adapter
         observeData()
-
-
     }
 
     fun observeData(){
@@ -50,7 +45,4 @@ class FragmentVerFAQ : Fragment() {
             adapter.notifyDataSetChanged()
         })
     }
-
-
-
 }
