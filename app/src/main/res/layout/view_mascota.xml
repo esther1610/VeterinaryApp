@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:text="DefaultName"
+        tools:text="DefaultName"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Rassa"
+        tools:text="Rassa"
         app:layout_constraintStart_toStartOf="@+id/mascota_nom"
         app:layout_constraintTop_toBottomOf="@+id/mascota_nom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,7 +87,7 @@ class vet_generardiagnosticos : Fragment() {
                     )
                 )
             }else{
-                mensage = "Introdizca cliente"
+                mensage = "Introduzca cliente"
                 missatgeEmergent(mensage)
             }
 
