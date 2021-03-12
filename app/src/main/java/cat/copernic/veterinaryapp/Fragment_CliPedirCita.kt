@@ -10,6 +10,7 @@ import cat.copernic.veterinaryapp.administrador.HoraAdapter
 import cat.copernic.veterinaryapp.databinding.FragmentCliPedirCitaBinding
 import cat.copernic.veterinaryapp.databinding.FragmentCliVerCitasBinding
 import cat.copernic.veterinaryapp.databinding.FragmentVetGenerarcitaBinding
+import cat.copernic.veterinaryapp.vet_generardiagnosticos.Companion.horaSelec
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -77,11 +78,11 @@ class Fragment_CliPedirCita : Fragment() {
         binding.addCita.setOnClickListener {
             var mensage = ""
             if(!(binding.editTextTextPersonName7.equals(""))){
-                db.collection("Cita").document(id + Fragment_CliPedirCita.horaSelecc).set(
+                db.collection("Cita").document(id + horaSelec).set(
                     hashMapOf(
                         "Client" to user!!.email,
                         "Fecha" to fecha,
-                        "Hora" to horaSelecc,
+                        "Hora" to horaSelec,
                         "Animal" to binding.editTextTextPersonName7.text.toString()
                     )
                 )
@@ -93,9 +94,9 @@ class Fragment_CliPedirCita : Fragment() {
         }
     }
 
-    companion object{
-        var horaSelecc : String = ""
-    }
+   // companion object{
+       // var horaSelecc : String = ""
+   // }
 
     fun missatgeEmergent(missatge: String) {
         val builder = android.app.AlertDialog.Builder(context)
