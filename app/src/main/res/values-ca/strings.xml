@@ -70,6 +70,12 @@
     <string name="clave_perfil">Contrasenya</string>
     <string name="crearMascota">Crear mascota</string>
 
+
+    <string name="editMascotaChiptxt">Nº de chip</string>
+    <string name="editarMascotaTxtPeso">Pes</string>
+    <string name="labelEditMascotaRaza">Rassa</string>
+    <string name="editFechaNac" >Data de naixement</string>
+
     <!-- Array per a Spinner de rol -->
     <string-array name="rols">
         <item>Client</item>

@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cat.copernic.veterinaryapp.administrador.LlistaUsers.UserView
 import cat.copernic.veterinaryapp.administrador.homeDirections
 import cat.copernic.veterinaryapp.client.LlistaMascotas.LlistaMascotasAdapter
 import cat.copernic.veterinaryapp.client.LlistaMascotas.MascotaView
@@ -45,7 +46,11 @@ class homeUser : Fragment(), LlistaMascotasAdapter.OnUserClic{
         binding.LlistaMascotasView.adapter = adapter
         observeData()
 
+        binding.floatingActionButton2.setOnClickListener{
+            findNavController().navigate(R.id.action_homeUser_to_fragment_CliGestionMascotas2)
+        }
     }
+
 
     fun observeData(){
         viewModel.fetchUsersData().observe(viewLifecycleOwner, Observer {
@@ -55,8 +60,8 @@ class homeUser : Fragment(), LlistaMascotasAdapter.OnUserClic{
     }
 
     override fun onUserClickAction(mascota: MascotaView) {
-        //val arg = homeDirections.actionHomeFToEditPerfil2(usuari.usuario)
-        //findNavController().navigate(arg)
+        val arg = homeUserDirections.actionHomeUserToFragmentEditarMascota()
+        findNavController().navigate(arg)
     }
 
 }
