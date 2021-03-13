@@ -4,9 +4,6 @@
         android:id="@+id/vet_generardiagnostic"
         android:title="@string/crearCita" />
     <item
-        android:id="@+id/vet_vercitas2"
-        android:title="@string/veureCita" />
-    <item
         android:id="@+id/vet_modificarcita2"
         android:title="@string/modCita" />
     <item

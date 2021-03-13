@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_vet"
-    app:startDestination="@id/homeVeterinary">
+    app:startDestination="@id/vet_vercitas">
 
     <fragment
         android:id="@+id/afegirVac"
@@ -29,15 +29,21 @@
         android:id="@+id/vet_modificarcita2"
         android:name="cat.copernic.veterinaryapp.vet_modificarcita"
         android:label="fragment_vet_modificarcita"
-        tools:layout="@layout/fragment_vet_modificarcita" />
+        tools:layout="@layout/fragment_vet_modificarcita" >
+        <action
+            android:id="@+id/action_vet_modificarcita2_to_vet_generardiag2"
+            app:destination="@id/vet_generardiag2" />
+    </fragment>
     <fragment
-        android:id="@+id/vet_vercitas2"
+        android:id="@+id/vet_vercitas"
         android:name="cat.copernic.veterinaryapp.vet_vercitas"
         android:label="fragment_vet_vercitas"
-        tools:layout="@layout/fragment_vet_vercitas" />
-    <fragment
-        android:id="@+id/homeVeterinary"
-        android:name="cat.copernic.veterinaryapp.veterinari.HomeVeterinary"
-        android:label="fragment_home_veterinary"
-        tools:layout="@layout/fragment_home_veterinary" />
+        tools:layout="@layout/fragment_vet_vercitas" >
+        <action
+            android:id="@+id/action_vet_vercitas_to_vet_generardiagnostic"
+            app:destination="@id/vet_generardiagnostic" />
+        <action
+            android:id="@+id/action_vet_vercitas_to_vet_modificarcita2"
+            app:destination="@id/vet_modificarcita2" />
+    </fragment>
 </navigation>

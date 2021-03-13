@@ -78,10 +78,11 @@ class vet_generardiagnosticos : Fragment() {
         binding.addCita.setOnClickListener {
             var mensage = ""
             if(!(binding.editTextTextPersonName7.equals(""))){
-                db.collection("Visita").document(id + horaSelec).set(
+                db.collection("Cita").document(id + horaSelec).set(
                     hashMapOf(
                         "Cliente" to binding.editTextTextPersonName7.text.toString(),
                         "Veterinari" to user!!.email,
+                        "Animal" to binding.genAnimal.text.toString(),
                         "Fecha" to fecha,
                         "Hora" to horaSelec
                     )
