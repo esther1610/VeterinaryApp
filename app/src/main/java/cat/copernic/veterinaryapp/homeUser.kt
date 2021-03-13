@@ -60,7 +60,8 @@ class homeUser : Fragment(), LlistaMascotasAdapter.OnUserClic{
     }
 
     override fun onUserClickAction(mascota: MascotaView) {
-        val arg = homeUserDirections.actionHomeUserToFragmentEditarMascota()
+
+        val arg = homeUserDirections.actionHomeUserToFragmentEditarMascota(mascota.chip)
         findNavController().navigate(arg)
     }
 
