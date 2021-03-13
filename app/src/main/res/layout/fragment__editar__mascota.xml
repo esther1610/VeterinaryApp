@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/fotoMascota"
-        android:layout_width="152dp"
-        android:layout_height="149dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="105dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreMascota"
@@ -21,7 +21,7 @@
         android:id="@+id/nombreMascota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -44,11 +44,12 @@
 
     <EditText
         android:id="@+id/editTextNumberSigned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="62dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="numberSigned"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +59,7 @@
         android:id="@+id/labelChip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/editMascotaChiptxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +69,7 @@
         android:id="@+id/labelPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/editarMascotaTxtPeso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -87,13 +88,13 @@
 
     <EditText
         android:id="@+id/editTextRaza"
-        android:layout_width="118dp"
-        android:layout_height="43dp"
+        android:layout_width="167dp"
+        android:layout_height="41dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -102,7 +103,7 @@
         android:id="@+id/labelFechaNac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/editFechaNac"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +113,7 @@
         android:id="@+id/editTextFechaNacMascota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -124,9 +125,19 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:text="@string/txtKg"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextRaza"
-        app:layout_constraintStart_toEndOf="@+id/editTextRaza" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumberSigned"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberSigned" />
+
+    <Button
+        android:id="@+id/btnModificarMascota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/guardarEditMascota"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRaza" />
 </androidx.constraintlayout.widget.ConstraintLayout>
