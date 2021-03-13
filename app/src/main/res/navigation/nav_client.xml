@@ -8,7 +8,7 @@
         android:id="@+id/homeUser"
         android:name="cat.copernic.veterinaryapp.homeUser"
         android:label="fragment_home_user"
-        tools:layout="@layout/fragment_home_user" >
+        tools:layout="@layout/fragment_home_user">
         <action
             android:id="@+id/action_homeUser_to_fragment_CliVerCitas"
             app:destination="@id/fragment_CliVerCitas" />
@@ -58,5 +58,9 @@
         android:id="@+id/fragment_Editar_Mascota"
         android:name="cat.copernic.veterinaryapp.Fragment_Editar_Mascota"
         android:label="fragment__editar__mascota"
-        tools:layout="@layout/fragment__editar__mascota" />
+        tools:layout="@layout/fragment__editar__mascota">
+        <argument
+            android:name="chipMascota"
+            app:argType="string" />
+    </fragment>
 </navigation>
