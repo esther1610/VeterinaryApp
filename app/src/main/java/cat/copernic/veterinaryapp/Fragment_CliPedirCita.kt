@@ -93,11 +93,7 @@ class Fragment_CliPedirCita : Fragment() {
 
         }
     }
-
-   // companion object{
-       // var horaSelecc : String = ""
-   // }
-
+    
     fun missatgeEmergent(missatge: String) {
         val builder = android.app.AlertDialog.Builder(context)
         builder.setTitle("Error")
