@@ -4,11 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import cat.copernic.veterinaryapp.administrador.LlistaUsers.LlistaUsersAdapter
-import cat.copernic.veterinaryapp.administrador.LlistaUsers.UserView
 import cat.copernic.veterinaryapp.modelos.FAQS
 import android.view.LayoutInflater
-import cat.copernic.veterinaryapp.R
 
 class LlistaFaqsAdapter():
     RecyclerView.Adapter<LlistaFaqsAdapter.LlistFaqsViewHolder>() {

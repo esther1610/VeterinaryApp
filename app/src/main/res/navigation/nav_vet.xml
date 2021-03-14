@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_vet_modificarcita2_to_vet_generardiag2"
             app:destination="@id/vet_generardiag2" />
+        <argument
+            android:name="citaData"
+            app:argType="cat.copernic.veterinaryapp.Objects.Cita" />
     </fragment>
     <fragment
         android:id="@+id/vet_vercitas"

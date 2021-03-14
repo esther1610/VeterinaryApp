@@ -7,11 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import cat.copernic.veterinaryapp.administrador.LlistaUsers.LlistaUsersAdapter
-import cat.copernic.veterinaryapp.administrador.LlistaUsers.UsersViewModel
-import cat.copernic.veterinaryapp.databinding.FragmentHomeBinding
 import cat.copernic.veterinaryapp.databinding.FragmentVerFAQBinding
 
 class FragmentVerFAQ : Fragment() {

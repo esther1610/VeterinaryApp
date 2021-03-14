@@ -1,19 +1,13 @@
 package cat.copernic.veterinaryapp.Objects
 
-import java.sql.Date
-import java.sql.Time
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-/**
- *
- */
-class Cita {
-    var veterinari:String = ""
-    var dia: String? = null
-    var hora: Time? = null
-    var client: String = ""
-
-    get() = field
-    set(value) {
-        field = value
-    }
-}
+@Parcelize
+class Cita(
+    var veterinari: String?,
+    var dia: String,
+    var hora: String,
+    var client: String,
+    var animal: String
+) : Parcelable

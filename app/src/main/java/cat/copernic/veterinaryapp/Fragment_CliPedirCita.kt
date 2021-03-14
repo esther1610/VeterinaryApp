@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.veterinaryapp.administrador.HoraAdapter
 import cat.copernic.veterinaryapp.databinding.FragmentCliPedirCitaBinding
-import cat.copernic.veterinaryapp.databinding.FragmentCliVerCitasBinding
-import cat.copernic.veterinaryapp.databinding.FragmentVetGenerarcitaBinding
 import cat.copernic.veterinaryapp.vet_generardiagnosticos.Companion.horaSelec
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore

@@ -1,11 +1,13 @@
 package cat.copernic.veterinaryapp
 
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.veterinaryapp.administrador.HoraAdapter
 import cat.copernic.veterinaryapp.databinding.FragmentVetGenerarcitaBinding
@@ -13,7 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
-import java.util.*
+import java.time.LocalDate
 import kotlin.collections.ArrayList
 
 class vet_generardiagnosticos : Fragment() {
@@ -63,6 +65,7 @@ class vet_generardiagnosticos : Fragment() {
         binding.recyclerView.adapter = adapador
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -70,7 +73,7 @@ class vet_generardiagnosticos : Fragment() {
         var id : String = ""
         binding.calendarView.setOnDateChangeListener{ calendarView, i, i2, i3 ->
 
-            val dd : String = "" + i3 + "/" + (i2 + 1) + "/" + i
+            val dd : String = i3.toString() + "/" + (i2 + 1) + "/" + i
             fecha = dd
             id = "" + i3 + "" + (i2 + 1) + "" + i
         }
@@ -80,7 +83,7 @@ class vet_generardiagnosticos : Fragment() {
             if(!(binding.editTextTextPersonName7.equals(""))){
                 db.collection("Cita").document(id + horaSelec).set(
                     hashMapOf(
-                        "Cliente" to binding.editTextTextPersonName7.text.toString(),
+                        "Client" to binding.editTextTextPersonName7.text.toString(),
                         "Veterinari" to user!!.email,
                         "Animal" to binding.genAnimal.text.toString(),
                         "Fecha" to fecha,
