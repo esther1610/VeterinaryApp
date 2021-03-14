@@ -51,6 +51,10 @@ class vet_vercitas : Fragment(), LlistaCitesAdapter.OnCitaClic {
         binding.llistaCites.layoutManager = LinearLayoutManager(context)
         binding.llistaCites.adapter = adapter
         observeData()
+
+        binding.button2.setOnClickListener {
+            findNavController().navigate(R.id.action_vet_vercitas_to_vet_generardiagnostic)
+        }
     }
 
     override fun onCitaClickAction(citaSelect: Cita) {
