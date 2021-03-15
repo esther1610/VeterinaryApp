@@ -23,6 +23,14 @@ class vet_generardiag : Fragment() {
 
     }
 
+    /**
+     * Veterinario se recuperara de sharedPreferences
+     * ya que almacena el usuario logeado, en este caso el veterinario
+     * la id de la cita por args al pulsar el boton
+     * 
+     *
+     *
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
