@@ -28,6 +28,7 @@ class vet_generardiag : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentVetGenerardiagBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
