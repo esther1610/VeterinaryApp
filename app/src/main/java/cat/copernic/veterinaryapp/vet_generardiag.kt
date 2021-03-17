@@ -23,7 +23,7 @@ import cat.copernic.veterinaryapp.modelos.Perfil
  */
 class vet_generardiag : Fragment() {
     private lateinit var binding: FragmentVetGenerardiagBinding
-    val args : vet_modificarcitaArgs by navArgs()
+    val args : vet_generardiagArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class vet_generardiag : Fragment() {
 
         //habria que recuperar por args la id de la cita y idmascota o nombre propietario
         //TODO
-        var citaData = args.citaData
+        //val citaData = args.citaDiad
 
         val email = recuperarDatosPreferences().toString()
         //Envia el mail para recuperar los datos del perfil
@@ -59,9 +59,8 @@ class vet_generardiag : Fragment() {
             //Guarda los datos actuales de los label, etc
             /**HAY QUE RECUPERAR DATOS DE IDVISITAS
              * y ID MASCOTA
-             * TODO
              * */
-            guardaDatos(email,citaData.toString(),"")
+            guardaDatos(email,args.citaDiad.toString(),"")
         }
 
 

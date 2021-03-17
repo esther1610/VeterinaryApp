@@ -21,7 +21,6 @@ import java.time.LocalDate
 
 class vet_vercitas : Fragment(), LlistaCitesAdapter.OnCitaClic {
 
-    private var fecha = ""
     private lateinit var binding: FragmentVetVercitasBinding
     private lateinit var adapter : LlistaCitesAdapter
     private val viewModel by lazy { ViewModelProviders.of(this).get(CitesViewModel::class.java)}
@@ -37,20 +36,22 @@ class vet_vercitas : Fragment(), LlistaCitesAdapter.OnCitaClic {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var fecha = ""
         val dateact = LocalDate.now()
-        fecha = dateact.dayOfMonth.toString() + "/" + (dateact.monthValue + 1) + "/" + dateact.year
+
+        fecha = dateact.dayOfMonth.toString() + "/" + dateact.monthValue + "/" + dateact.year
 
         //Calendario
         binding.calendarView2.setOnDateChangeListener{ calendarView, i, i2, i3 ->
             fecha = "" + i3 + "/" + (i2 + 1) + "/" + i
-            observeData()
+            observeData(fecha)
         }
 
         //crear RecyclerView de citas
         adapter = LlistaCitesAdapter(this)
         binding.llistaCites.layoutManager = LinearLayoutManager(context)
         binding.llistaCites.adapter = adapter
-        observeData()
+        observeData(fecha)
 
         binding.button2.setOnClickListener {
             findNavController().navigate(R.id.action_vet_vercitas_to_vet_generardiagnostic)
@@ -62,8 +63,8 @@ class vet_vercitas : Fragment(), LlistaCitesAdapter.OnCitaClic {
         findNavController().navigate(argument)
     }
 
-    fun observeData(){
-        viewModel.fetchUsersData(fecha).observe(viewLifecycleOwner, Observer {
+    fun observeData(valor: String){
+        viewModel.fetchUsersData(valor).observe(viewLifecycleOwner, Observer {
             adapter.setListData(it)
             adapter.notifyDataSetChanged()
         })
