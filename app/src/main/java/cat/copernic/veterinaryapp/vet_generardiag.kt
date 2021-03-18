@@ -60,7 +60,10 @@ class vet_generardiag : Fragment() {
             /**HAY QUE RECUPERAR DATOS DE IDVISITAS
              * y ID MASCOTA
              * */
-            guardaDatos(email,args.citaDiad.toString(),"")
+            //guardaDatos(email,args.citaDiad.toString(),"")
+            Log.e("joseargs", "args.citaDiad.animal")
+            //Log.e("joseargs", args.citaDiad.animal)
+            guardaDatos(email,"todo","todo")
         }
 
 

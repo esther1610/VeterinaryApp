@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.veterinaryapp.administrador.HoraAdapter
 import cat.copernic.veterinaryapp.databinding.FragmentVetGenerarcitaBinding
+import cat.copernic.veterinaryapp.databinding.FragmentVetGenerardiagBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -102,6 +103,12 @@ class vet_generardiagnosticos : Fragment() {
         var horaSelec : String = ""
     }
 
+    /**
+     * Dejar los campos en blanco
+     */
+    fun limpiarCampos(){
+        //TODO
+    }
     fun missatgeEmergent(missatge: String) {
         val builder = android.app.AlertDialog.Builder(context)
         builder.setTitle("Error")
