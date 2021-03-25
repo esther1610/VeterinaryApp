@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -25,11 +26,6 @@ class vet_generardiag : Fragment() {
     private lateinit var binding: FragmentVetGenerardiagBinding
     val args : vet_generardiagArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     /**
      * Veterinario se recuperara de sharedPreferences
      * ya que almacena el usuario logeado, en este caso el veterinario
@@ -46,7 +42,7 @@ class vet_generardiag : Fragment() {
 
         //habria que recuperar por args la id de la cita y idmascota o nombre propietario
         //TODO
-        //val citaData = args.citaDiad
+        val id = args.citaDiad.dia.replace("/", "") + args.citaDiad.hora
 
         val email = recuperarDatosPreferences().toString()
         //Envia el mail para recuperar los datos del perfil
@@ -60,14 +56,8 @@ class vet_generardiag : Fragment() {
             /**HAY QUE RECUPERAR DATOS DE IDVISITAS
              * y ID MASCOTA
              * */
-            //guardaDatos(email,args.citaDiad.toString(),"")
-            Log.e("joseargs", "args.citaDiad.animal")
-            //Log.e("joseargs", args.citaDiad.animal)
-            guardaDatos(email,"todo","todo")
+            guardaDatos(email,id,"")
         }
-
-
-
 
         return binding.root
     }
@@ -100,6 +90,7 @@ class vet_generardiag : Fragment() {
             diagnostico.paciente = idMascota
             //Falta proxima visita
             diagnostico.prox_visita = ""
+            diagnostico.fecha = args.citaDiad.dia
 
             val opdb: OperacionesDBFirebase_Diagnostico = OperacionesDBFirebase_Diagnostico()
             //Guardar las modificaciones
@@ -109,6 +100,10 @@ class vet_generardiag : Fragment() {
         if (campoErroneo){
             missatgeEmergent("Error","Omple tots els camps correctament")
             campoErroneo = false //No es necesario, pero por si acaso
+        }else{
+            missatgeEmergent("Info","Diagnostic generat")
+            binding.editTextDiagnostico.setText("")
+            binding.editTextMedicamento.setText("")
         }
 
     }

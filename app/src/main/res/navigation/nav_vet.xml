@@ -18,8 +18,8 @@
     <fragment
         android:id="@+id/vet_generardiag2"
         android:name="cat.copernic.veterinaryapp.vet_generardiag"
-        android:label="fragment_vet_generardiag"
-        tools:layout="@layout/fragment_vet_generardiag" >
+        android:label="@string/genDiagnostic"
+        tools:layout="@layout/fragment_vet_generardiag">
         <argument
             android:name="citaDiad"
             app:argType="cat.copernic.veterinaryapp.Objects.Cita" />
@@ -27,13 +27,13 @@
     <fragment
         android:id="@+id/vet_generardiagnostic"
         android:name="cat.copernic.veterinaryapp.vet_generardiagnosticos"
-        android:label="fragment_vet_generarcita"
+        android:label="@string/crearCita"
         tools:layout="@layout/fragment_vet_generarcita" />
     <fragment
         android:id="@+id/vet_modificarcita2"
         android:name="cat.copernic.veterinaryapp.vet_modificarcita"
-        android:label="fragment_vet_modificarcita"
-        tools:layout="@layout/fragment_vet_modificarcita" >
+        android:label="@string/modCita"
+        tools:layout="@layout/fragment_vet_modificarcita">
         <action
             android:id="@+id/action_vet_modificarcita2_to_vet_generardiag2"
             app:destination="@id/vet_generardiag2" />
@@ -44,8 +44,8 @@
     <fragment
         android:id="@+id/vet_vercitas"
         android:name="cat.copernic.veterinaryapp.vet_vercitas"
-        android:label="fragment_vet_vercitas"
-        tools:layout="@layout/fragment_vet_vercitas" >
+        android:label="@string/veureCites"
+        tools:layout="@layout/fragment_vet_vercitas">
         <action
             android:id="@+id/action_vet_vercitas_to_vet_generardiagnostic"
             app:destination="@id/vet_generardiagnostic" />

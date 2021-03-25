@@ -86,8 +86,8 @@ class vet_modificarcita : Fragment() {
             guardaDatos()
         }
         binding.genDiag.setOnClickListener {
-            val args = vet_vercitasDirections.actionVetVercitasToVetModificarcita2(args.citaData)
-            findNavController().navigate(R.id.action_vet_modificarcita2_to_vet_generardiag2)
+            val args = vet_modificarcitaDirections.actionVetModificarcita2ToVetGenerardiag2(args.citaData)
+            findNavController().navigate(args)
         }
     }
 
