@@ -11,7 +11,6 @@ class Comprobaciones {
      * que un némero este comprendido entre n valores, etc
      * */
 
-
     /**
      * Comprueba que una cadena de texto contiene algo
      *
